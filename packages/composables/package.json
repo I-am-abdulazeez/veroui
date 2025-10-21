@@ -34,7 +34,9 @@
   },
   "dependencies": {
     "@veroui/system": "workspace:*",
-    "@veroui/theme": "workspace:*"
+    "@veroui/theme": "workspace:*",
+    "@veroui/vue-utils": "workspace:*",
+    "@veroui/shared-utils": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
