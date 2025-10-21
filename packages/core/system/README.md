@@ -59,11 +59,11 @@ const button = tv({
 
 ## Contributing
 
-Yes please! See the [contributing guidelines](https://github.com/yourusername/veroui/blob/main/CONTRIBUTING.md) for details.
+Yes please! See the [contributing guidelines](https://github.com/I-am-abdulazeez/veroui/blob/main/CONTRIBUTING.md) for details.
 
 ## License
 
-This project is licensed under the terms of the [MIT license](https://github.com/yourusername/veroui/blob/main/LICENSE).
+This project is licensed under the terms of the [MIT license](https://github.com/I-am-abdulazeez/veroui/blob/main/LICENSE).
 
 ## Credits
 
