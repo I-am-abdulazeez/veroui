@@ -12,6 +12,31 @@ importers:
         specifier: latest
         version: 2.5.8
 
+  packages/core/composables:
+    dependencies:
+      '@veroui/system':
+        specifier: workspace:*
+        version: link:../system
+      '@veroui/theme':
+        specifier: workspace:*
+        version: link:../theme
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.22
+      rimraf:
+        specifier: ^5.0.0
+        version: 5.0.10
+      tsup:
+        specifier: ^8.0.0
+        version: 8.5.0(jiti@1.21.7)(postcss@8.5.6)(typescript@5.9.3)
+      typescript:
+        specifier: ^5.3.0
+        version: 5.9.3
+      vue:
+        specifier: ^3.4.0
+        version: 3.5.22(typescript@5.9.3)
+
   packages/core/system:
     dependencies:
       '@veroui/theme':
