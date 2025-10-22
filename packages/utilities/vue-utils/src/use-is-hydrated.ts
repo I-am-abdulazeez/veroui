@@ -28,9 +28,9 @@ import { ref, onMounted, type Ref } from 'vue'
  * @returns Ref<boolean> indicating if the component is hydrated
  */
 export function useIsHydrated(): Ref<boolean> {
-  // Initialize as false for SSR
-  // This will be false during server-side rendering
-  const isHydrated = ref(typeof window !== 'undefined' ? false : false)
+  // Always start as false to match SSR
+  // This prevents hydration mismatches
+  const isHydrated = ref(false)
 
   // Set to true after component is mounted on client
   onMounted(() => {
