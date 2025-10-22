@@ -106,6 +106,9 @@ export default {
 ### `@veroui/system`
 
 Core utilities, type system, and provider for global configuration.
+
+Option 1: Using the Plugin (Recommended for apps)
+
 ```typescript
 import { createVeroUI } from '@veroui/system'
 
@@ -115,6 +118,23 @@ app.use(createVeroUI({
   disableAnimation: false,
   locale: 'en-US'
 }))
+```
+
+Option 2: Using the Component
+```vue
+<script setup lang="ts">
+import { VeroUIProvider } from '@veroui/system'
+</script>
+
+<template>
+  <VeroUIProvider
+    :disable-animation="false"
+    :disable-ripple="false"
+    locale="en-US"
+  >
+    <RouterView />
+  </VeroUIProvider>
+</template>
 ```
 
 ### `@veroui/composables`
