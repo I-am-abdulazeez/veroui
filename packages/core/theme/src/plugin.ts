@@ -19,7 +19,7 @@ import { isBaseTheme } from './utils/theme'
 import { lightLayout, darkLayout, defaultLayout } from './default-layout'
 import { baseStyles } from './utils/classes'
 import { DEFAULT_TRANSITION_DURATION } from './utilities/transition'
-import { kebabCase, mapKeys, omit } from './utils/shared-utils'
+import { kebabCase, mapKeys, omit } from '@veroui/shared-utils'
 
 const DEFAULT_PREFIX = 'veroui'
 
