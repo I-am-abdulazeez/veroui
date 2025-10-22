@@ -1,0 +1,167 @@
+# VeroUI 🎨
+
+A beautiful, fast, and modern Vue 3 UI library inspired by [HeroUI](https://heroui.com).
+
+> ⚠️ **Work in Progress** - VeroUI is currently in active development and not ready for production use.
+
+## About
+
+VeroUI is a Vue 3 port of HeroUI, bringing the same elegant design system and developer experience to the Vue ecosystem. Built with accessibility, customization, and developer experience in mind.
+
+## Tech Stack
+
+- **[Vue 3](https://vuejs.org/)** - Progressive JavaScript framework
+- **[TypeScript](https://www.typescriptlang.org/)** - Type safety and better DX
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first styling
+- **[Tailwind Variants](https://www.tailwind-variants.org/)** - Component variants
+- **[RekaUI](https://reka-ui.com/)** - Headless UI primitives for accessibility
+- **[pnpm](https://pnpm.io/)** - Fast, disk space efficient package manager
+- **[Turborepo](https://turbo.build/)** - High-performance monorepo build system
+
+## Project Structure
+```
+veroui/
+├── packages/
+│   ├── core/
+│   │   ├── theme/         # Design tokens, colors, Tailwind plugin
+│   │   └── system/        # Type system, utilities, provider
+│   ├── composables/       # Vue composables (hooks)
+│   └── utilities/         # Shared utility functions
+├── apps/                  # (Coming soon) Demo apps and documentation
+└── components/            # (Coming soon) UI components
+```
+
+## Current Status
+
+### ✅ Completed
+
+- [x] Monorepo setup (pnpm + Turborepo)
+- [x] Theme system (colors, tokens, design system)
+- [x] Core utilities and type system
+- [x] Provider and configuration
+- [x] Base composables (useDisclosure, useTheme, useIsMounted, etc.)
+
+### 🚧 In Progress
+
+- [ ] Component library (Button, Input, Card, etc.)
+- [ ] Documentation site
+- [ ] Storybook/Histoire demos
+
+### 📋 Planned
+
+- [ ] Full component coverage
+- [ ] Theming and customization guide
+- [ ] Accessibility testing
+- [ ] npm publishing
+
+## Development
+
+### Prerequisites
+
+- Node.js >= 18
+- pnpm >= 9
+
+### Setup
+```bash
+# Clone the repository
+git clone https://github.com/I-am-abdulazeez/veroui.git
+cd veroui
+
+# Install dependencies
+pnpm install
+
+# Build all packages
+pnpm build
+
+# Watch mode for development
+pnpm dev
+```
+
+### Building Specific Packages
+```bash
+# Build theme only
+pnpm --filter @veroui/theme build
+
+# Build system only
+pnpm --filter @veroui/system build
+
+# Build composables only
+pnpm --filter @veroui/composables build
+```
+
+## Packages
+
+### `@veroui/theme`
+
+Design tokens, color system, and Tailwind CSS plugin.
+```typescript
+import { veroui } from '@veroui/theme'
+
+// In your tailwind.config.ts
+export default {
+  plugins: [veroui()],
+}
+```
+
+### `@veroui/system`
+
+Core utilities, type system, and provider for global configuration.
+```typescript
+import { createVeroUI } from '@veroui/system'
+
+// In your main.ts
+const app = createApp(App)
+app.use(createVeroUI({
+  disableAnimation: false,
+  locale: 'en-US'
+}))
+```
+
+### `@veroui/composables`
+
+Reusable Vue composables for building interactive components.
+```typescript
+import { useDisclosure, useTheme, useIsMobile } from '@veroui/composables'
+```
+
+### `@veroui/utilities`
+
+Shared utility functions used across packages.
+
+## Philosophy
+
+VeroUI follows these core principles:
+
+- **Accessible by Default** - All components follow WAI-ARIA guidelines
+- **Customizable** - Easy theming with design tokens and variants
+- **Type-Safe** - Full TypeScript support throughout
+- **Developer Experience** - Intuitive APIs and comprehensive documentation
+- **Performance** - Optimized builds and tree-shakeable components
+
+## Credits
+
+VeroUI is inspired by and adapted from:
+- **[HeroUI](https://heroui.com)** - The original React UI library
+- **[NextUI](https://nextui.org)** - HeroUI's predecessor
+- **[Radix Vue / RekaUI](https://reka-ui.com/)** - Headless UI primitives
+
+## Contributing
+
+Contributions are welcome! This project is in early stages, so feel free to:
+- Report bugs
+- Suggest features
+- Submit pull requests
+- Improve documentation
+
+## License
+
+MIT License - see [LICENSE](./LICENSE) for details.
+
+## Community
+
+- [GitHub Issues](https://github.com/I-am-abdulazeez/veroui/issues)
+- [Discussions](https://github.com/I-am-abdulazeez/veroui/discussions)
+
+---
+
+**Built with ❤️ for the Vue community**
