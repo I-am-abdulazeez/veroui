@@ -1,5 +1,5 @@
-import { ref, watch, onMounted, onUnmounted, type Ref } from 'vue';
-import { debounce } from '@veroui/theme';
+import { ref, watch, onUnmounted } from 'vue';
+import { debounce } from '@veroui/shared-utils';
 
 export interface UseInfiniteScrollProps {
   /**
