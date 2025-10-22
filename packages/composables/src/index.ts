@@ -24,3 +24,10 @@ export {
   type UseIsMountedProps,
   type UseIsMountedReturn,
 } from './use-is-mounted'
+
+// Device detection
+export {
+  useIsMobile,
+  MOBILE_SCREEN_WIDTH,
+  type UseIsMobileOptions,
+} from './use-is-mobile'
