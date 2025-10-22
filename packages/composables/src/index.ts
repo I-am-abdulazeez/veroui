@@ -17,3 +17,10 @@ export {
   type UseInfiniteScrollProps,
   type UseInfiniteScrollReturn,
 } from './use-infinite-scroll'
+
+// Lifecycle
+export {
+  useIsMounted,
+  type UseIsMountedProps,
+  type UseIsMountedReturn,
+} from './use-is-mounted'
