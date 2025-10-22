@@ -1,4 +1,4 @@
-// state management
+// State management
 export { useControllableState, type UseControllableStateProps } from './use-controllable-state'
 export { useDisclosure, type UseDisclosureProps, type UseDisclosureReturn } from './use-disclosure'
 
@@ -10,3 +10,10 @@ export {
   type CustomTheme,
   type UseThemeReturn
 } from './use-theme'
+
+// Scroll
+export {
+  useInfiniteScroll,
+  type UseInfiniteScrollProps,
+  type UseInfiniteScrollReturn,
+} from './use-infinite-scroll'
