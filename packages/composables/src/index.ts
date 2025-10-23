@@ -45,3 +45,9 @@ export {
   MOBILE_SCREEN_WIDTH,
   type UseIsMobileOptions,
 } from './use-is-mobile'
+
+export {
+  useViewportSize,
+  type ViewportSize,
+  type UseViewportSizeReturn,
+} from './use-viewport-size'
