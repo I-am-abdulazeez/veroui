@@ -25,6 +25,13 @@ export {
   type UseInfiniteScrollReturn,
 } from './use-infinite-scroll'
 
+export {
+  useScrollPosition,
+  type UseScrollPositionOptions,
+  type ScrollValue,
+  type UseScrollPositionReturn,
+} from './use-scroll-position'
+
 // Lifecycle
 export {
   useIsMounted,
