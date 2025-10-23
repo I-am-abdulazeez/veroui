@@ -30,3 +30,8 @@ export function debounce<T extends (...args: any[]) => any>(
     timeoutId = setTimeout(() => fn(...args), delay)
   }
 }
+
+export function range(start: number, end: number): number[] {
+  const length = end - start + 1
+  return Array.from({ length }, (_, i) => start + i)
+}
