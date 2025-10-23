@@ -8,6 +8,7 @@ export {
 // State management
 export { useControllableState, type UseControllableStateProps } from './use-controllable-state'
 export { useDisclosure, type UseDisclosureProps, type UseDisclosureReturn } from './use-disclosure'
+export { useRefState, type UseRefStateReturn } from './use-ref-state'
 
 // Theme
 export {
