@@ -51,3 +51,10 @@ export {
   type ViewportSize,
   type UseViewportSizeReturn,
 } from './use-viewport-size'
+
+// Resize
+export {
+  useResize,
+  useResizeObserver,
+  type UseResizeObserverOptions,
+} from './use-resize'
