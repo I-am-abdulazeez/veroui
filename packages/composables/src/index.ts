@@ -66,3 +66,29 @@ export {
   type ShapeResult,
   type UseRealShapeReturn,
 } from './use-real-shape'
+
+// Pagination
+export {
+  usePagination,
+  PaginationItemType,
+  type UsePaginationProps,
+  type UsePaginationReturn,
+  type PaginationItemValue
+} from './use-pagination'
+
+// Measurement
+export {
+  useMeasure,
+  type UseMeasureReturn,
+  type Dimensions,
+} from './use-measure'
+
+// Image
+export {
+  useImage,
+  shouldShowFallbackImage,
+  type UseImageProps,
+  type UseImageReturn,
+  type Status,
+  type FallbackStrategy
+} from './use-image'
