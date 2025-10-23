@@ -59,3 +59,10 @@ export {
   useResizeObserver,
   type UseResizeObserverOptions,
 } from './use-resize'
+
+// Shape/Dimensions
+export {
+  useRealShape,
+  type ShapeResult,
+  type UseRealShapeReturn,
+} from './use-real-shape'
