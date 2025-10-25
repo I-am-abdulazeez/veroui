@@ -59,3 +59,6 @@ export {
 
 // Forms
 export { useFormReset } from './use-form-reset'
+
+// Draggable
+export { useDraggable, type UseDraggableProps, type MoveEvent, type UseDraggableReturn } from './use-draggable'
