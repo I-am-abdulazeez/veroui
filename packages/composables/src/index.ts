@@ -62,3 +62,13 @@ export { useFormReset } from './use-form-reset'
 
 // Draggable
 export { useDraggable, type UseDraggableProps, type MoveEvent, type UseDraggableReturn } from './use-draggable'
+
+// Clipboard
+export { useClipboard, type UseClipboardReturn, type UseClipboardProps } from './use-clipboard'
+
+export {
+  useAriaOverlay,
+  type UseAriaOverlayProps,
+  type OverlayAria,
+  type UseAriaOverlayReturn,
+} from './use-aria-overlay'
