@@ -72,3 +72,9 @@ export {
   type OverlayAria,
   type UseAriaOverlayReturn,
 } from './use-aria-overlay'
+
+export {
+  useAriaLink,
+  type AriaLinkOptions,
+  type UseAriaLinkReturn,
+} from './use-aria-link'
