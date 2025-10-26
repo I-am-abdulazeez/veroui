@@ -9,6 +9,8 @@
     "type-check": "turbo type-check"
   },
   "devDependencies": {
+    "@histoire/plugin-vue": "1.0.0-alpha.4",
+    "histoire": "1.0.0-alpha.4",
     "turbo": "latest"
   },
   "packageManager": "pnpm@9.0.0",
