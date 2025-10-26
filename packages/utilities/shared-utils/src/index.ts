@@ -40,3 +40,59 @@ export function capitalize(str: string): string {
   if (!str || str.length === 0) return str
   return str.charAt(0).toUpperCase() + str.slice(1)
 }
+
+export function dataAttr(condition: boolean | undefined): string | undefined {
+  return condition ? 'true' : undefined
+}
+
+export function objectToDeps(obj: Record<string, any>): any[] {
+  if (!obj || typeof obj !== 'object') return []
+  return Object.keys(obj)
+    .sort()
+    .map((key) => obj[key])
+}
+
+export function chain<T extends (...args: any[]) => any>(
+  ...callbacks: (T | undefined)[]
+): (...args: Parameters<T>) => void {
+  return (...args: Parameters<T>) => {
+    callbacks.forEach((callback) => {
+      if (typeof callback === 'function') {
+        callback(...args)
+      }
+    })
+  }
+}
+
+export function mergeProps<T extends Record<string, any>>(
+  ...objects: (T | undefined)[]
+): T {
+  const result: Record<string, any> = {}
+
+  objects.forEach((obj) => {
+    if (!obj) return
+
+    Object.keys(obj).forEach((key) => {
+      const value = obj[key]
+
+      if (key === 'class' || key === 'className') {
+        // Merge class names
+        result[key] = [result[key], value].filter(Boolean).join(' ')
+      } else if (key.startsWith('on') && typeof value === 'function') {
+        // Merge event handlers
+        const existing = result[key]
+        result[key] = existing
+          ? (...args: any[]) => {
+            existing(...args)
+            value(...args)
+          }
+          : value
+      } else {
+        // Later values override earlier ones
+        result[key] = value
+      }
+    })
+  })
+
+  return result as T
+}
