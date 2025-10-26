@@ -6,7 +6,7 @@
 
 import type { ConfigTheme, ConfigThemes, DefaultThemeType, VeroUIPluginConfig } from './types'
 
-import Color from 'color2k'
+import * as Color from "color2k";
 // @ts-ignore
 import plugin from 'tailwindcss/plugin.js'
 import deepMerge from 'deepmerge'
