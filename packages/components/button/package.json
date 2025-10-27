@@ -56,8 +56,9 @@
     "@veroui/theme": "workspace:*",
     "@vitejs/plugin-vue": "^6.0.1",
     "rimraf": "^5.0.0",
-    "typescript": "^5.3.0",
+    "typescript": "~5.8.2",
     "vite": "^7.1.12",
+    "vite-plugin-dts": "^4.5.4",
     "vue": "^3.4.0",
     "vue-tsc": "^2.0.0"
   }
