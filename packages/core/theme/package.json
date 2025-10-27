@@ -35,14 +35,14 @@
     "tailwindcss": ">=4.0.0"
   },
   "dependencies": {
+    "@veroui/shared-utils": "workspace:*",
     "clsx": "^1.2.1",
     "color": "^4.2.3",
     "color2k": "^2.0.3",
-    "deepmerge": "4.3.1",
-    "flat": "^5.0.2",
+    "deepmerge-ts": "^7.1.3",
+    "flat": "^6.0.1",
     "tailwind-merge": "3.3.1",
-    "tailwind-variants": "3.1.1",
-    "@veroui/shared-utils": "workspace:*"
+    "tailwind-variants": "3.1.1"
   },
   "devDependencies": {
     "@types/color": "^4.2.0",
