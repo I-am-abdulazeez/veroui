@@ -1,0 +1,36 @@
+{
+  "name": "@veroui/storybook",
+  "version": "0.0.1",
+  "description": "The VeroUI Vue components storybook",
+  "keywords": [
+    "storybook",
+    "histoire",
+    "vue"
+  ],
+  "private": true,
+  "type": "module",
+  "author": "VeroUI <support@veroui.com>",
+  "homepage": "https://veroui.com",
+  "license": "MIT",
+  "scripts": {
+    "dev": "histoire dev --logLevel verbose",
+    "build": "histoire build",
+    "preview": "histoire preview"
+  },
+  "dependencies": {
+    "@iconify/vue": "^4.1.1",
+    "@veroui/button": "workspace:*",
+    "@veroui/system": "workspace:*",
+    "@veroui/theme": "workspace:*",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@histoire/plugin-vue": "1.0.0-alpha.4",
+    "@tailwindcss/vite": "^4.1.16",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "histoire": "1.0.0-alpha.4",
+    "typescript": "^5.3.0",
+    "vite": "^7.1.12",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
