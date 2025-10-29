@@ -36,7 +36,7 @@
     "url": "https://github.com/I-am-abdulazeez/veroui/issues"
   },
   "scripts": {
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "dev": "vite build --watch",
     "clean": "rimraf dist .turbo",
     "type-check": "vue-tsc --noEmit"
@@ -59,7 +59,7 @@
     "typescript": "~5.8.2",
     "vite": "^7.1.12",
     "vite-plugin-dts": "^4.5.4",
-    "vue": "^3.4.0",
+    "vue": "^3.5.2",
     "vue-tsc": "^2.0.0"
   }
 }
