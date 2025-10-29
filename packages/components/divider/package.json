@@ -1,0 +1,58 @@
+{
+    "name": "@veroui/divider",
+    "version": "2.2.20",
+    "description": ". A separator is a visual divider between two groups of content",
+    "keywords": [
+        "divider"
+    ],
+    "author": "VeroUI <support@veroui.com>",
+    "homepage": "https://veroui.com",
+    "license": "MIT",
+    "main": "src/index.ts",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/I-am-abdulazeez/veroui.git",
+        "directory": "packages/components/divider"
+    },
+    "bugs": {
+        "url": "https://github.com/I-am-abdulazeez/heroui/issues"
+    },
+    "scripts": {
+        "build": "vue-tsc && vite build",
+        "dev": "vite build --watch",
+        "clean": "rimraf dist .turbo",
+        "type-check": "vue-tsc --noEmit"
+    },
+    "peerDependencies": {
+        "react": ">=18 || >=19.0.0-rc.0",
+        "react-dom": ">=18 || >=19.0.0-rc.0",
+        "@veroui/theme": ">=2.4.17"
+    },
+    "dependencies": {
+        "@veroui/vue-utils": "workspace:*",
+        "@veroui/system": "workspace:*",
+        "@react-types/shared": "3.32.1"
+    },
+    "devDependencies": {
+        "@veroui/theme": "workspace:*",
+        "clean-package": "2.2.0",
+        "react": "18.3.0",
+        "react-dom": "18.3.0",
+        "@types/react": "19.2.2",
+        "@types/react-dom": "19.2.2",
+        "rimraf": "^5.0.0",
+        "typescript": "^5.9.3",
+        "vite": "^7.1.12",
+        "vue": "^3.4.0",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "vue-tsc": "^2.0.0"
+    },
+    "clean-package": "../../../clean-package.config.json"
+}

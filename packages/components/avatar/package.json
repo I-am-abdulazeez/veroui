@@ -1,0 +1,59 @@
+{
+    "name": "@veroui/avatar",
+    "version": "2.2.22",
+    "description": "The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.",
+    "keywords": [
+        "avatar"
+    ],
+    "author": "VeroUI <support@veroui.com>",
+    "homepage": "https://veroui.com",
+    "license": "MIT",
+    "main": "src/index.ts",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/I-am-abdulazeez/veroui.git",
+        "directory": "packages/components/avatar"
+    },
+    "bugs": {
+        "url": "https://github.com/I-am-abdulazeez/issues"
+    },
+    "scripts": {
+        "build": "vue-tsc && vite build",
+        "dev": "vite build --watch",
+        "clean": "rimraf dist .turbo",
+        "type-check": "vue-tsc --noEmit"
+    },
+    "peerDependencies": {
+        "react": ">=18 || >=19.0.0-rc.0",
+        "react-dom": ">=18 || >=19.0.0-rc.0",
+        "@veroui/theme": ">=2.4.17",
+        "@veroui/system": ">=2.4.18"
+    },
+    "dependencies": {
+        "@veroui/shared-utils": "workspace:*",
+        "@veroui/composables": "workspace:*",
+        "@react-aria/interactions": "3.25.6",
+        "@react-aria/focus": "3.21.2"
+    },
+    "devDependencies": {
+        "@types/react": "19.2.2",
+        "@types/react-dom": "19.2.2",
+        "@veroui/theme": "workspace:*",
+        "@veroui/system": "workspace:*",
+        "@veroui/shared-icons": "workspace:*",
+        "@veroui/test-utils": "workspace:*",
+        "rimraf": "^5.0.0",
+        "typescript": "^5.9.3",
+        "vite": "^7.1.12",
+        "vue": "^3.4.0",
+        "@vitejs/plugin-vue": "^6.0.1",
+        "vue-tsc": "^2.0.0"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "name": "@veroui/test-utils",
+    "version": "2.1.10",
+    "description": "A set of utilities for react testing",
+    "keywords": [
+        "test-utils"
+    ],
+    "author": "VeroUI <support@veroui.com>",
+    "homepage": "https://veroui.com",
+    "license": "MIT",
+    "main": "src/index.ts",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/I-am-abdulazeez/veroui.git",
+        "directory": "packages/utilities/test-utils"
+    },
+    "bugs": {
+        "url": "https://github.com/I-am-abdulazeez/veroui/issues"
+    }
+}
