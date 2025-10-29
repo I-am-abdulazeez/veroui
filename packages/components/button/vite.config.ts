@@ -8,10 +8,11 @@ export default defineConfig({
     vue(),
     dts({
       insertTypesEntry: true,
-      copyDtsFiles: true,
+      outDir: 'dist',
+      copyDtsFiles: false,
       staticImport: true,
       rollupTypes: true,
-    }),
+    })
   ],
   build: {
     lib: {
