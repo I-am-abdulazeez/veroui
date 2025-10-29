@@ -1,5 +1,5 @@
 import { inject, provide, type InjectionKey } from 'vue'
-import type { ButtonProps } from './button.vue'
+import type { ButtonProps } from './types'
 
 export type ButtonGroupContext = {
   size?: ButtonProps['size']
