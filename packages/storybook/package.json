@@ -13,7 +13,8 @@
   "homepage": "https://veroui.com",
   "license": "MIT",
   "scripts": {
-    "dev": "histoire dev --logLevel verbose",
+    "dev": "histoire dev",
+    "dev:debug": "cross-env DEBUG=tailwindcss:* histoire dev --logLevel verbose",
     "build": "histoire build",
     "preview": "histoire preview"
   },
@@ -28,7 +29,11 @@
     "@histoire/plugin-vue": "1.0.0-alpha.4",
     "@tailwindcss/vite": "^4.1.16",
     "@vitejs/plugin-vue": "^6.0.1",
+    "autoprefixer": "^10.4.21",
+    "cross-env": "^10.1.0",
     "histoire": "1.0.0-alpha.4",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.3.0",
     "vite": "^7.1.12",
     "vite-tsconfig-paths": "^5.1.4"
