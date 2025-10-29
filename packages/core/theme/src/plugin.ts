@@ -185,6 +185,9 @@ const corePlugin = (
     },
     // extend the colors config
     {
+      content: [
+        "./node_modules/@veroui/theme/dist/**/*.{js,mjs}",
+      ],
       theme: {
         extend: {
           // @ts-ignore
