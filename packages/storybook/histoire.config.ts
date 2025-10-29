@@ -1,7 +1,6 @@
 import { defineConfig } from 'histoire'
 import { HstVue } from '@histoire/plugin-vue'
 import vue from '@vitejs/plugin-vue'
-import tailwindcss from '@tailwindcss/vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineConfig({
@@ -31,10 +30,9 @@ export default defineConfig({
     plugins: [
       tsconfigPaths(),
       vue(),
-      tailwindcss(),
     ],
     server: {
-      port: 6007,
+      port: 6006,
     },
     optimizeDeps: {
       include: ['deepmerge'],
