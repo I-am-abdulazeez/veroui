@@ -8,3 +8,9 @@ export interface ButtonProps extends /* @vue-ignore */ UseButtonProps {
   children?: any;
 }
 export interface ButtonGroupProps extends /* @vue-ignore */ UseButtonGroupProps { }
+
+export type SpinnerPlacement = 'start' | 'end';
+export type Size = 'sm' | 'md' | 'lg'
+export type Color = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+export type Variant = "solid" | "bordered" | "light" | "flat" | "faded" | "shadow" | "ghost"
+export type Radius = 'none' | 'sm' | 'md' | 'lg' | 'full'
