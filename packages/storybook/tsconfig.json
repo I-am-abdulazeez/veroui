@@ -11,5 +11,13 @@
       "@veroui/vue-utils": ["../../core/vue-utils/src"]
     }
   },
-  "include": ["src", "histoire.setup.ts", "histoire.config.ts", "src", "*.ts"]
+  "include": [
+    "src",
+    "histoire.setup.ts",
+    "histoire.config.ts",
+    "src",
+    "*.ts",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
 }
