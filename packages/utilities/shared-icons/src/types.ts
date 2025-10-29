@@ -1,3 +1,3 @@
 import { SVGAttributes } from "vue";
 
-export type IconSvgProps = SVGAttributes;
+export interface IconSvgProps extends /* @vue-ignore */ SVGAttributes {}

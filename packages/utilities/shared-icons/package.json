@@ -30,7 +30,7 @@
     "url": "https://github.com/I-am-abdulazeez/issues"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "dev": "vite build --watch",
     "clean": "rimraf dist .turbo",
     "type-check": "vue-tsc --noEmit"
