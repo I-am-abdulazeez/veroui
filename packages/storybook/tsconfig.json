@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@veroui/button": ["../../components/button/src"],
+      "@veroui/spinner": ["../../components/spinner/src"],
       "@veroui/theme": ["../../core/theme/src"],
       "@veroui/system": ["../../core/system/src"],
       "@veroui/shared-utils": ["../../core/shared-utils/src"],

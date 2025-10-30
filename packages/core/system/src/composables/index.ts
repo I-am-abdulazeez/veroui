@@ -6,3 +6,5 @@ export {
   type UseLabelPlacementProps,
   type UseInputLabelPlacementProps,
 } from './use-label-placement'
+
+export { useProviderContext } from "./use-provider"

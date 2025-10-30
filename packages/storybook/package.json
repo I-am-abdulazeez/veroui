@@ -23,6 +23,7 @@
     "@veroui/button": "workspace:*",
     "@veroui/system": "workspace:*",
     "@veroui/theme": "workspace:*",
+    "@veroui/spinner": "workspace:*",
     "vue": "^3.4.0"
   },
   "devDependencies": {

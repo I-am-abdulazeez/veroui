@@ -9,6 +9,8 @@ Please refer to the [documentation](https://veroui.com/docs/components/button) f
 Install the `@veroui/button` package via yarn or npm:
 
 ```sh
+pnpm add @veroui/button
+# or
 yarn add @veroui/button
 # or
 npm i @veroui/button

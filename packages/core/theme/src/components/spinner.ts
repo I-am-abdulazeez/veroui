@@ -1,5 +1,4 @@
 /**
- * Spinner wrapper **Tailwind Variants** component
  * Credits: HeroUI
  */
 

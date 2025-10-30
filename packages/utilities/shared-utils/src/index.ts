@@ -1,4 +1,3 @@
-// since we don't have @veroui/shared-utils
 export function omit<T extends Record<string, any>>(obj: T, keys: string[]): Partial<T> {
   const result = { ...obj }
   keys.forEach(key => delete result[key])
@@ -95,4 +94,50 @@ export function mergeProps<T extends Record<string, any>>(
   })
 
   return result as T
+}
+
+/**
+ * Clamps a value between a minimum and maximum value
+ */
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max)
+}
+
+/**
+ * Generates a unique ID with an optional prefix
+ */
+let idCounter = 0
+
+export function getUniqueID(prefix: string = 'veroui'): string {
+  idCounter += 1
+  return `${prefix}-${idCounter}-${Date.now()}`
+}
+
+/**
+ * Alternative implementation using crypto API for better uniqueness
+ */
+export function getUniqueIDCrypto(prefix: string = 'veroui'): string {
+  if (typeof crypto !== 'undefined' && crypto.randomUUID) {
+    return `${prefix}-${crypto.randomUUID()}`
+  }
+  // Fallback for environments without crypto.randomUUID
+  return `${prefix}-${Math.random().toString(36).substr(2, 9)}-${Date.now()}`
+}
+
+/**
+ * Generates a deterministic ID based on a seed
+ * Useful for SSR where you need consistent IDs between server and client
+ */
+export function getDeterministicID(prefix: string = 'veroui', seed?: string): string {
+  if (seed) {
+    // Simple hash function for the seed
+    let hash = 0
+    for (let i = 0; i < seed.length; i++) {
+      const char = seed.charCodeAt(i)
+      hash = ((hash << 5) - hash) + char
+      hash = hash & hash // Convert to 32bit integer
+    }
+    return `${prefix}-${Math.abs(hash)}`
+  }
+  return getUniqueID(prefix)
 }
