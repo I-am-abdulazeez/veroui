@@ -1,5 +1,4 @@
 /**
- * Button wrapper **Tailwind Variants** component
  * Credits: HeroUI
  */
 
