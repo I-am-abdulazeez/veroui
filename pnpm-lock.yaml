@@ -20,9 +20,15 @@ importers:
       '@veroui/composables':
         specifier: workspace:*
         version: link:../../composables
+      '@veroui/ripple':
+        specifier: workspace:*
+        version: link:../ripple
       '@veroui/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@veroui/spinner':
+        specifier: workspace:*
+        version: link:../spinner
       '@veroui/theme':
         specifier: workspace:*
         version: link:../../core/theme
@@ -55,11 +61,51 @@ importers:
         specifier: ^2.0.0
         version: 2.2.12(typescript@5.8.2)
 
+  packages/components/ripple:
+    dependencies:
+      '@veroui/composables':
+        specifier: workspace:*
+        version: link:../../composables
+      '@veroui/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@veroui/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@veroui/vue-utils':
+        specifier: workspace:*
+        version: link:../../utilities/vue-utils
+      motion-v:
+        specifier: ^1.7.4
+        version: 1.7.4(@vueuse/core@14.0.0(vue@3.5.22(typescript@5.8.2)))(vue@3.5.22(typescript@5.8.2))
+    devDependencies:
+      '@veroui/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@vitejs/plugin-vue':
+        specifier: ^6.0.1
+        version: 6.0.1(vite@7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))(vue@3.5.22(typescript@5.8.2))
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      typescript:
+        specifier: ~5.8.2
+        version: 5.8.2
+      vite:
+        specifier: ^7.1.12
+        version: 7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
+      vite-plugin-dts:
+        specifier: ^4.5.4
+        version: 4.5.4(@types/node@20.19.22)(rollup@4.52.5)(typescript@5.8.2)(vite@7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      vue:
+        specifier: ^3.5.2
+        version: 3.5.22(typescript@5.8.2)
+      vue-tsc:
+        specifier: ^2.0.0
+        version: 2.2.12(typescript@5.8.2)
+
   packages/components/spinner:
     dependencies:
-      '@iconify/vue':
-        specifier: ^4.1.1
-        version: 4.3.0(vue@3.5.22(typescript@5.8.2))
       '@veroui/composables':
         specifier: workspace:*
         version: link:../../composables
@@ -959,6 +1005,9 @@ packages:
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
 
+  '@types/web-bluetooth@0.0.21':
+    resolution: {integrity: sha512-oIQLCGWtcFZy2JW77j9k8nHzAOpqMHLQejDA48XXMWH6tjCQHz5RCFz1bzsmROyL6PUm+LLnUiI4BCn221inxA==}
+
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
@@ -1025,6 +1074,19 @@ packages:
 
   '@vue/shared@3.5.22':
     resolution: {integrity: sha512-F4yc6palwq3TT0u+FYf0Ns4Tfl9GRFURDN2gWG7L1ecIaS/4fCIuFOjMTnCyjsu/OK6vaDKLCrGAa+KvvH+h4w==}
+
+  '@vueuse/core@14.0.0':
+    resolution: {integrity: sha512-d6tKRWkZE8IQElX2aHBxXOMD478fHIYV+Dzm2y9Ag122ICBpNKtGICiXKOhWU3L1kKdttDD9dCMS4bGP3jhCTQ==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/metadata@14.0.0':
+    resolution: {integrity: sha512-6yoGqbJcMldVCevkFiHDBTB1V5Hq+G/haPlGIuaFZHpXC0HADB0EN1ryQAAceiW+ryS3niUwvdFbGiqHqBrfVA==}
+
+  '@vueuse/shared@14.0.0':
+    resolution: {integrity: sha512-mTCA0uczBgurRlwVaQHfG0Ja7UdGe4g9mwffiJmvLiTtp1G4AQyIjej6si/k8c8pUwTfVpNufck+23gXptPAkw==}
+    peerDependencies:
+      vue: ^3.5.0
 
   acorn@8.15.0:
     resolution: {integrity: sha512-NZyJarBfL7nWwIq+FDL6Zp/yHEhePMNnnJ0y3qfieCrmNvYct8uvtiV41UvlSe6apAfk0fY1FbWx+NwfmpvtTg==}
@@ -1442,6 +1504,20 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
+  framer-motion@12.23.12:
+    resolution: {integrity: sha512-6e78rdVtnBvlEVgu6eFEAgG9v3wLnYEboM8I5O5EXvfKC8gxGQB8wXJdhkMy10iVcn05jl6CNw7/HTsTCfwcWg==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   fs-extra@11.3.2:
     resolution: {integrity: sha512-Xr9F6z6up6Ws+NjzMCZc6WXg2YFRlrLP9NQDO3VQrWrfiojdhS56TzueT88ze0uBdCTwEIhQ3ptnmKeWGFAe0A==}
     engines: {node: '>=14.14'}
@@ -1521,6 +1597,9 @@ packages:
   he@1.2.0:
     resolution: {integrity: sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==}
     hasBin: true
+
+  hey-listen@1.0.8:
+    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
 
   histoire@1.0.0-alpha.4:
     resolution: {integrity: sha512-9MighHIeJaHJjdqyRXFVQnVcwXIISHgPGKdOKG5skH3AI6LD9N2ka2RYn/3r1JMxXgBcPx/J83XQ1SadsUIIdg==}
@@ -1821,6 +1900,18 @@ packages:
 
   mlly@1.8.0:
     resolution: {integrity: sha512-l8D9ODSRWLe2KHJSifWGwBqpTZXIXTeo8mlKjY+E2HAakaTeNpqAyBZ8GSqLzHgw4XmHmC8whvpjJNMbFZN7/g==}
+
+  motion-dom@12.23.12:
+    resolution: {integrity: sha512-RcR4fvMCTESQBD/uKQe49D5RUeDOokkGRmz4ceaJKDBgHYtZtntC/s2vLvY38gqGaytinij/yi3hMcWVcEF5Kw==}
+
+  motion-utils@12.23.6:
+    resolution: {integrity: sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==}
+
+  motion-v@1.7.4:
+    resolution: {integrity: sha512-YNDUAsany04wfI7YtHxQK3kxzNvh+OdFUk9GpA3+hMt7j6P+5WrVAAgr8kmPPoVza9EsJiAVhqoN3YYFN0Twrw==}
+    peerDependencies:
+      '@vueuse/core': '>=10.0.0'
+      vue: '>=3.0.0'
 
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
@@ -2290,6 +2381,9 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
   tsup@8.5.0:
     resolution: {integrity: sha512-VmBp77lWNQq6PfuMqCHD3xWl22vEoWsKajkF8t+yMBawlUS8JzEI+vOVMeuNZIuMML8qXRizFKi9oD5glKQVcQ==}
@@ -3180,6 +3274,8 @@ snapshots:
 
   '@types/unist@3.0.3': {}
 
+  '@types/web-bluetooth@0.0.21': {}
+
   '@ungap/structured-clone@1.3.0': {}
 
   '@vitejs/plugin-vue@6.0.1(vite@7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))(vue@3.5.22(typescript@5.8.2))':
@@ -3309,6 +3405,19 @@ snapshots:
       vue: 3.5.22(typescript@5.9.3)
 
   '@vue/shared@3.5.22': {}
+
+  '@vueuse/core@14.0.0(vue@3.5.22(typescript@5.8.2))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 14.0.0
+      '@vueuse/shared': 14.0.0(vue@3.5.22(typescript@5.8.2))
+      vue: 3.5.22(typescript@5.8.2)
+
+  '@vueuse/metadata@14.0.0': {}
+
+  '@vueuse/shared@14.0.0(vue@3.5.22(typescript@5.8.2))':
+    dependencies:
+      vue: 3.5.22(typescript@5.8.2)
 
   acorn@8.15.0: {}
 
@@ -3699,6 +3808,12 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
+  framer-motion@12.23.12:
+    dependencies:
+      motion-dom: 12.23.12
+      motion-utils: 12.23.6
+      tslib: 2.8.1
+
   fs-extra@11.3.2:
     dependencies:
       graceful-fs: 4.2.11
@@ -3800,6 +3915,8 @@ snapshots:
       '@types/hast': 3.0.4
 
   he@1.2.0: {}
+
+  hey-listen@1.0.8: {}
 
   histoire@1.0.0-alpha.4(@types/node@20.19.22)(lightningcss@1.30.2)(vite@7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))(yaml@2.8.1):
     dependencies:
@@ -4130,6 +4247,24 @@ snapshots:
       pathe: 2.0.3
       pkg-types: 1.3.1
       ufo: 1.6.1
+
+  motion-dom@12.23.12:
+    dependencies:
+      motion-utils: 12.23.6
+
+  motion-utils@12.23.6: {}
+
+  motion-v@1.7.4(@vueuse/core@14.0.0(vue@3.5.22(typescript@5.8.2)))(vue@3.5.22(typescript@5.8.2)):
+    dependencies:
+      '@vueuse/core': 14.0.0(vue@3.5.22(typescript@5.8.2))
+      framer-motion: 12.23.12
+      hey-listen: 1.0.8
+      motion-dom: 12.23.12
+      vue: 3.5.22(typescript@5.8.2)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+      - react
+      - react-dom
 
   mri@1.2.0: {}
 
@@ -4594,6 +4729,8 @@ snapshots:
   tsconfck@3.1.6(typescript@5.9.3):
     optionalDependencies:
       typescript: 5.9.3
+
+  tslib@2.8.1: {}
 
   tsup@8.5.0(@microsoft/api-extractor@7.53.3(@types/node@20.19.22))(jiti@1.21.7)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.1):
     dependencies:
