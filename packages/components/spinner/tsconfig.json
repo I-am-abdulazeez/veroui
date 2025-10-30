@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "tailwind-variants": ["../../core/theme/node_modules/tailwind-variants"]
+    },
+    "types": ["vue"]
+  },
+  "vueCompilerOptions": {
+    "globalTypesPath": "../../node_modules/.vue-global-types"
+  },
+  "include": ["src", "src/index.ts"]
+}
