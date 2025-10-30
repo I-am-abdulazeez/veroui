@@ -1,4 +1,4 @@
-import { inject, provide, type InjectionKey } from 'vue'
+import { inject, provide, type InjectionKey, type ComputedRef } from 'vue'
 import type { ButtonProps } from './types'
 
 export type ButtonGroupContext = {
@@ -13,12 +13,14 @@ export type ButtonGroupContext = {
   fullWidth?: boolean
 }
 
-export const ButtonGroupContextKey: InjectionKey<ButtonGroupContext> = Symbol('ButtonGroupContext')
+export const ButtonGroupContextKey: InjectionKey<ComputedRef<ButtonGroupContext>> =
+  Symbol('ButtonGroupContext')
 
-export function provideButtonGroupContext(context: ButtonGroupContext) {
+export function provideButtonGroupContext(context: ComputedRef<ButtonGroupContext>) {
   provide(ButtonGroupContextKey, context)
 }
 
-export function useButtonGroupContext(): ButtonGroupContext | undefined {
+// Return the ref itself, not the value
+export function useButtonGroupContext(): ComputedRef<ButtonGroupContext> | undefined {
   return inject(ButtonGroupContextKey, undefined)
 }
