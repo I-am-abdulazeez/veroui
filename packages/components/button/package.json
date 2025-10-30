@@ -38,8 +38,8 @@
   "scripts": {
     "build": "vue-tsc --noEmit && vite build",
     "dev": "vite build --watch",
-    "clean": "rimraf dist .turbo",
-    "type-check": "vue-tsc --noEmit"
+    "type-check": "vue-tsc --noEmit",
+    "clean": "clean-package dist .turbo"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
@@ -55,8 +55,8 @@
     "@veroui/system": "workspace:*",
     "@veroui/theme": "workspace:*",
     "@vitejs/plugin-vue": "^6.0.1",
-    "rimraf": "^5.0.0",
     "typescript": "~5.8.2",
+    "clean-package": "2.2.0",
     "vite": "^7.1.12",
     "vite-plugin-dts": "^4.5.4",
     "vue": "^3.5.2",

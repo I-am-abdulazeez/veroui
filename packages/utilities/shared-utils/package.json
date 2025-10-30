@@ -26,12 +26,12 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "clean": "rimraf dist .turbo",
+    "clean": "clean-package dist .turbo",
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "rimraf": "^5.0.0",
+    "clean-package": "2.2.0",
     "tsup": "^8.0.0",
     "typescript": "^5.3.0"
   }

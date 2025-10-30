@@ -26,15 +26,15 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "clean": "rimraf dist .turbo",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "clean": "clean-package dist .turbo"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "rimraf": "^5.0.0",
+    "clean-package": "2.2.0",
     "tsup": "^8.0.0",
     "typescript": "^5.3.0",
     "vue": "^3.4.0"
