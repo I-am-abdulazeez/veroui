@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { useButton } from "./use-button";
-
+// import { Ripple } from "@veroui/ripple";
 import type { Color, Radius, Size, SpinnerPlacement, Variant } from "./types";
 
 const props = defineProps({
@@ -79,6 +79,7 @@ const slots = defineSlots<{
   default?: () => any;
   startContent?: () => any;
   endContent?: () => any;
+  spinner?: () => any;
 }>();
 
 const {
@@ -88,21 +89,59 @@ const {
   startContent,
   endContent,
   isLoading,
+  spinnerSize,
+  spinnerPlacement,
+  disableRipple,
+  getSpinner,
+  ripples,
+  onClearRipple,
 } = useButton(props);
 </script>
 
 <template>
   <component :is="Component" v-bind="buttonProps">
+    <!-- Start Content -->
     <slot v-if="slots.startContent" name="startContent" />
     <template v-else-if="startContent">
       {{ startContent }}
     </template>
 
+    <!-- Spinner at start -->
+    <slot
+      v-if="isLoading && spinnerPlacement === 'start' && slots.spinner"
+      name="spinner"
+    />
+    <component
+      v-else-if="isLoading && spinnerPlacement === 'start'"
+      :is="getSpinner"
+      :size="spinnerSize"
+      color="current"
+    />
+
+    <!-- Main Content (hide if loading and icon only) -->
     <slot v-if="!(isLoading && isIconOnly)" />
+
+    <!-- Spinner at end -->
+    <slot
+      v-if="isLoading && spinnerPlacement === 'end' && slots.spinner"
+      name="spinner"
+    />
+    <component
+      v-else-if="isLoading && spinnerPlacement === 'end'"
+      :is="getSpinner"
+      :size="spinnerSize"
+      color="current"
+    />
 
     <slot v-if="slots.endContent" name="endContent" />
     <template v-else-if="endContent">
       {{ endContent }}
     </template>
+    <!--
+    <Ripple
+      v-if="!disableRipple"
+      :ripples="ripples"
+      :on-clear="onClearRipple"
+    /> -->
   </component>
 </template>
