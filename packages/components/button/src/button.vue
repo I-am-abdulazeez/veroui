@@ -11,15 +11,15 @@ const props = defineProps({
   },
   size: {
     type: String as PropType<Size>,
-    default: "md",
+    default: undefined,
   },
   color: {
     type: String as PropType<Color>,
-    default: "default",
+    default: undefined,
   },
   variant: {
     type: String as PropType<Variant>,
-    default: "solid",
+    default: undefined,
   },
   radius: {
     type: String as PropType<Radius>,
@@ -27,7 +27,7 @@ const props = defineProps({
   },
   isDisabled: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
   isLoading: {
     type: Boolean,
@@ -35,19 +35,19 @@ const props = defineProps({
   },
   fullWidth: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
   isIconOnly: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
   disableRipple: {
     type: Boolean,
-    default: true,
+    default: undefined,
   },
   disableAnimation: {
     type: Boolean,
-    default: false,
+    default: undefined,
   },
   spinnerPlacement: {
     type: String as PropType<SpinnerPlacement>,
