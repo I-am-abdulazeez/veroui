@@ -21,14 +21,14 @@ VeroUI is a Vue 3 port of HeroUI, bringing the same elegant design system and de
 ## Project Structure
 ```
 veroui/
+├── apps/                  # (Coming soon) Demo apps and documentation
 ├── packages/
 │   ├── core/
 │   │   ├── theme/         # Design tokens, colors, Tailwind plugin
 │   │   └── system/        # Type system, utilities, provider
 │   ├── composables/       # Vue composables (hooks)
-│   └── utilities/         # Shared utility functions
-├── apps/                  # (Coming soon) Demo apps and documentation
-└── components/            # (Coming soon) UI components
+│   ├── components/        # (Coming soon) UI components
+│   └── utilities/         # Shared utility functions (vue-utils, shared-util, shared-icons)
 ```
 
 ## Current Status
@@ -40,6 +40,7 @@ veroui/
 - [x] Core utilities and type system
 - [x] Provider and configuration
 - [x] Base composables (useDisclosure, useTheme, useIsMounted, etc.)
+- [x] Storybook/Histoire setup
 
 ### 🚧 In Progress
 
@@ -54,12 +55,69 @@ veroui/
 - [ ] Accessibility testing
 - [ ] npm publishing
 
+## 🧩 Component Checklist
+
+Below is the full list of components in progress for **VeroUI**.  
+We'll check them off as they are completed.
+
+### ✅ Completed
+- [x] **Button**
+- [x] **Spinner**
+
+### 🚧 In Progress / Planned
+- [ ] Accordion  
+- [ ] Alert  
+- [ ] Autocomplete  
+- [ ] Avatar  
+- [ ] Badge  
+- [ ] Breadcrumbs  
+- [ ] Calendar  
+- [ ] Card  
+- [ ] Checkbox  
+- [ ] Chip  
+- [ ] Code  
+- [ ] Date Input  
+- [ ] Date Picker  
+- [ ] Divider  
+- [ ] Drawer  
+- [ ] Dropdown  
+- [ ] Form  
+- [ ] Image  
+- [ ] Input OTP  
+- [ ] Input  
+- [ ] Kbd  
+- [ ] Link  
+- [ ] Listbox  
+- [ ] Menu  
+- [ ] Modal  
+- [ ] Navbar  
+- [ ] Number Input  
+- [ ] Pagination  
+- [ ] Popover  
+- [ ] Progress  
+- [ ] Radio  
+- [ ] Ripple  
+- [ ] Scroll Shadow  
+- [ ] Select  
+- [ ] Skeleton  
+- [ ] Slider  
+- [ ] Snippet  
+- [ ] Spacer  
+- [ ] Switch  
+- [ ] Table  
+- [ ] Tabs  
+- [ ] Toast  
+- [ ] Tooltip  
+- [ ] User  
+- [ ] All Component stories
+
 ## Development
 
 ### Prerequisites
 
 - Node.js >= 18
 - pnpm >= 9
+- Vue 3.4+
 
 ### Setup
 ```bash
@@ -108,7 +166,6 @@ export default {
 Core utilities, type system, and provider for global configuration.
 
 Option 1: Using the Plugin (Recommended for apps)
-
 ```typescript
 import { createVeroUI } from '@veroui/system'
 
@@ -150,7 +207,7 @@ Shared utility functions used across packages.
 
 ## Philosophy
 
-VeroUI follows these core principles:
+VeroUI follows these core principles of HeroUI which follows:
 
 - **Accessible by Default** - All components follow WAI-ARIA guidelines
 - **Customizable** - Easy theming with design tokens and variants
@@ -163,7 +220,7 @@ VeroUI follows these core principles:
 VeroUI is inspired by and adapted from:
 - **[HeroUI](https://heroui.com)** - The original React UI library
 - **[NextUI](https://nextui.org)** - HeroUI's predecessor
-- **[Radix Vue / RekaUI](https://reka-ui.com/)** - Headless UI primitives
+- **[RekaUI](https://reka-ui.com/)** - Headless UI primitives
 
 ## Contributing
 
