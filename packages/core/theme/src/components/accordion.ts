@@ -1,5 +1,4 @@
 /**
- * Accordion wrapper **Tailwind Variants** component
  * Credits: HeroUI
  */
 
