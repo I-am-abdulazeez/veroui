@@ -1,24 +1,56 @@
 <script setup lang="ts">
+import type { PropType } from "vue";
 import { provideButtonGroupContext } from "./button-group-context";
 import { useButtonGroup } from "./use-button-group";
-import type { ButtonGroupProps } from "./types";
+import type { Color, Radius, Size, Variant } from "./types";
 
-const props = withDefaults(defineProps</* @vue-ignore */ ButtonGroupProps>(), {
-  as: "div",
-  size: "md",
-  color: "default",
-  variant: "solid",
-  isDisabled: false,
-  isIconOnly: false,
-  disableRipple: false,
-  disableAnimation: false,
-  fullWidth: false,
+const props = defineProps({
+  as: {
+    type: [String, Object] as PropType<string | any>,
+    default: "div",
+  },
+  size: {
+    type: String as PropType<Size>,
+    default: "md",
+  },
+  color: {
+    type: String as PropType<Color>,
+    default: "default",
+  },
+  variant: {
+    type: String as PropType<Variant>,
+    default: "solid",
+  },
+  radius: {
+    type: String as PropType<Radius>,
+    default: undefined,
+  },
+  isDisabled: {
+    type: Boolean,
+    default: false,
+  },
+  fullWidth: {
+    type: Boolean,
+    default: false,
+  },
+  isIconOnly: {
+    type: Boolean,
+    default: false,
+  },
+  disableRipple: {
+    type: Boolean,
+    default: false,
+  },
+  disableAnimation: {
+    type: Boolean,
+    default: false,
+  },
+  className: String,
 });
 
 const { Component, context, buttonGroupProps } = useButtonGroup(props);
 
-// Provide context to child buttons
-provideButtonGroupContext(context.value);
+provideButtonGroupContext(context);
 </script>
 
 <template>

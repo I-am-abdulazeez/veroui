@@ -9,7 +9,7 @@ import type { ConfigTheme, ConfigThemes, DefaultThemeType, VeroUIPluginConfig } 
 import * as Color from "color2k";
 // @ts-ignore
 import plugin from 'tailwindcss/plugin.js'
-import deepMerge from 'deepmerge'
+import { deepmerge } from 'deepmerge-ts'
 
 import { semanticColors, commonColors } from './colors'
 import { animations } from './animations'
@@ -185,6 +185,9 @@ const corePlugin = (
     },
     // extend the colors config
     {
+      content: [
+        "./node_modules/@veroui/theme/dist/**/*.{js,mjs}",
+      ],
       theme: {
         extend: {
           // @ts-ignore
@@ -267,7 +270,7 @@ export const veroui = (config: VeroUIPluginConfig = {}): ReturnType<typeof plugi
 
   const defaultLayoutObj =
     userLayout && typeof userLayout === 'object'
-      ? deepMerge(defaultLayout, userLayout)
+      ? deepmerge(defaultLayout, userLayout)
       : defaultLayout
 
   const baseLayouts = {
@@ -297,24 +300,24 @@ export const veroui = (config: VeroUIPluginConfig = {}): ReturnType<typeof plugi
     }
 
     otherThemes[themeName]!.colors =
-      colors && typeof colors === 'object' ? deepMerge(baseColors, colors) : baseColors
+      colors && typeof colors === 'object' ? deepmerge(baseColors, colors) : baseColors
 
     const baseLayout = extend && (extend === 'light' || extend === 'dark')
       ? baseLayouts[extend]
       : defaultLayoutObj
 
     otherThemes[themeName]!.layout =
-      layout && typeof layout === 'object' ? deepMerge(baseLayout, layout) : baseLayout
+      layout && typeof layout === 'object' ? deepmerge(baseLayout, layout) : baseLayout
   })
 
   const light: ConfigTheme = {
-    layout: deepMerge(baseLayouts.light, themeObject?.light?.layout || {}),
-    colors: deepMerge(semanticColors.light, userLightColors),
+    layout: deepmerge(baseLayouts.light, themeObject?.light?.layout || {}),
+    colors: deepmerge(semanticColors.light, userLightColors),
   }
 
   const dark: ConfigTheme = {
-    layout: deepMerge(baseLayouts.dark, themeObject?.dark?.layout || {}),
-    colors: deepMerge(semanticColors.dark, userDarkColors),
+    layout: deepmerge(baseLayouts.dark, themeObject?.dark?.layout || {}),
+    colors: deepmerge(semanticColors.dark, userDarkColors),
   }
 
   const themes = {

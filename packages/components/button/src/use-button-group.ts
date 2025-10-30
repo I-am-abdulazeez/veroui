@@ -1,7 +1,6 @@
-import { Component, computed, type Ref } from 'vue'
+import { Component, computed } from 'vue'
 import { buttonGroup, type ButtonGroupVariantProps } from '@veroui/theme'
-// import { objectToDeps } from '@veroui/shared-utils'
-import type { ButtonProps } from './button.vue'
+import type { ButtonProps } from './types'
 import type { ButtonGroupContext } from './button-group-context'
 
 export interface UseButtonGroupProps extends ButtonGroupVariantProps {
@@ -56,45 +55,31 @@ export interface UseButtonGroupProps extends ButtonGroupVariantProps {
 }
 
 export function useButtonGroup(props: UseButtonGroupProps) {
-  const {
-    as = 'div',
-    color = 'default',
-    size = 'md',
-    variant = 'solid',
-    radius,
-    isDisabled = false,
-    isIconOnly = false,
-    disableRipple = false,
-    disableAnimation = false,
-    fullWidth = false,
-    className,
-    ...variantProps
-  } = props
+  const Component = computed(() => props.as || 'div')
 
-  const Component = as
-
-  // Compute class names
   const classNames = computed(() =>
     buttonGroup({
-      ...variantProps,
-      className,
+      fullWidth: props.fullWidth,
+      className: props.className,
     })
   )
 
-  // Context to provide to child buttons
-  const context = computed<ButtonGroupContext>(() => ({
-    size,
-    color,
-    variant,
-    radius,
-    isIconOnly,
-    isDisabled,
-    disableAnimation,
-    disableRipple,
-    fullWidth,
-  }))
+  const context = computed<ButtonGroupContext>(() => {
+    const ctx = {
+      size: props.size ?? 'md',
+      color: props.color ?? 'default',
+      variant: props.variant ?? 'solid',
+      radius: props.radius,
+      isIconOnly: props.isIconOnly ?? false,
+      isDisabled: props.isDisabled ?? false,
+      disableAnimation: props.disableAnimation ?? false,
+      disableRipple: props.disableRipple ?? false,
+      fullWidth: props.fullWidth ?? false,
+    }
 
-  // Props to spread on the button group element
+    return ctx
+  })
+
   const buttonGroupProps = computed(() => ({
     role: 'group',
     class: classNames.value,

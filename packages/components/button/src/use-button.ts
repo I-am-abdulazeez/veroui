@@ -1,8 +1,8 @@
-import { Component, computed, ref, type Ref, type VNode } from 'vue'
+import { Component, computed, ref, VNode } from 'vue'
 import { button, type ButtonVariantProps } from '@veroui/theme'
-import { dataAttr, chain, mergeProps } from '@veroui/shared-utils'
+import { dataAttr } from '@veroui/shared-utils'
 import { useButtonGroupContext } from './button-group-context'
-// import type { SpinnerProps } from '@veroui/spinner'
+import type { Color, Radius, Size, SpinnerPlacement, Variant } from './types'
 
 export interface UseButtonProps extends ButtonVariantProps {
   /**
@@ -31,7 +31,7 @@ export interface UseButtonProps extends ButtonVariantProps {
    * The spinner placement.
    * @default "start"
    */
-  spinnerPlacement?: 'start' | 'end'
+  spinnerPlacement?: SpinnerPlacement
   /**
    * Whether the button should display a loading spinner.
    * @default false
@@ -51,21 +51,21 @@ export interface UseButtonProps extends ButtonVariantProps {
    * The button size.
    * @default 'md'
    */
-  size?: 'sm' | 'md' | 'lg'
+  size?: Size
   /**
    * The button color.
    * @default 'default'
    */
-  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+  color?: Color
   /**
    * The button variant.
    * @default 'solid'
    */
-  variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost'
+  variant?: Variant
   /**
    * The button radius.
    */
-  radius?: 'none' | 'sm' | 'md' | 'lg' | 'full'
+  radius?: Radius
   /**
    * Whether the button is icon only.
    * @default false
@@ -99,39 +99,10 @@ export interface UseButtonProps extends ButtonVariantProps {
    */
   onClick?: (e: MouseEvent) => void
 }
-
 export function useButton(props: UseButtonProps) {
-  const groupContext = useButtonGroupContext()
-  const isInGroup = !!groupContext
-
-  const {
-    as = 'button',
-    startContent: startContentProp,
-    endContent: endContentProp,
-    autoFocus = false,
-    className,
-    spinner,
-    isLoading = false,
-    disableRipple: disableRippleProp = false,
-    fullWidth = groupContext?.fullWidth ?? false,
-    radius = groupContext?.radius,
-    size = groupContext?.size ?? 'md',
-    color = groupContext?.color ?? 'default',
-    variant = groupContext?.variant ?? 'solid',
-    disableAnimation = groupContext?.disableAnimation ?? false,
-    isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    isIconOnly = groupContext?.isIconOnly ?? false,
-    spinnerPlacement = 'start',
-    type = 'button',
-    onPress,
-    onClick,
-  } = props
-
-  const Component = as || 'button'
+  const groupContextRef = useButtonGroupContext()
+  const isInGroup = computed(() => !!groupContextRef?.value)
   const buttonRef = ref<HTMLButtonElement | null>(null)
-
-  const disableRipple = disableRippleProp ?? disableAnimation
-  const isDisabled = isDisabledProp || isLoading
 
   // Focus state management
   const isFocused = ref(false)
@@ -139,59 +110,47 @@ export function useButton(props: UseButtonProps) {
   const isPressed = ref(false)
   const isHovered = ref(false)
 
-  // Compute styles
-  const styles = computed(() =>
-    button({
-      size,
-      color,
-      variant,
-      radius,
-      fullWidth,
-      isDisabled,
-      isInGroup,
-      disableAnimation,
-      isIconOnly,
-      className,
-    })
-  )
+  // Access groupContextRef.value reactively
+  const size = computed(() => props.size ?? groupContextRef?.value?.size ?? 'md')
+  const color = computed(() => props.color ?? groupContextRef?.value?.color ?? 'default')
+  const variant = computed(() => props.variant ?? groupContextRef?.value?.variant ?? 'solid')
+  const radius = computed(() => props.radius ?? groupContextRef?.value?.radius)
+  const fullWidth = computed(() => props.fullWidth ?? groupContextRef?.value?.fullWidth ?? false)
+  const isIconOnly = computed(() => props.isIconOnly ?? groupContextRef?.value?.isIconOnly ?? false)
+  const disableAnimation = computed(() => props.disableAnimation ?? groupContextRef?.value?.disableAnimation ?? false)
+  const isLoading = computed(() => props.isLoading ?? false)
+  const isDisabled = computed(() => (props.isDisabled ?? groupContextRef?.value?.isDisabled ?? false) || isLoading.value)
 
-  // Ripple management
-  const ripples = ref<any[]>([])
+  const Component = computed(() => props.as || 'button')
+  const disableRipple = computed(() => (props.disableRipple ?? true) || disableAnimation.value)
 
-  const onRipplePress = (e: MouseEvent) => {
-    if (disableRipple || isDisabled || disableAnimation) return
+  const styles = computed(() => {
+    const config = {
+      size: size.value,
+      color: color.value,
+      variant: variant.value,
+      radius: radius.value,
+      fullWidth: fullWidth.value,
+      isDisabled: isDisabled.value,
+      isInGroup: isInGroup.value,
+      disableAnimation: disableAnimation.value,
+      isIconOnly: isIconOnly.value,
+      className: props.className,
+    }
 
-    const button = buttonRef.value
-    if (!button) return
+    const result = button(config)
 
-    const rect = button.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-
-    ripples.value.push({
-      key: Date.now(),
-      x,
-      y,
-      size: Math.max(rect.width, rect.height),
-    })
-  }
-
-  const onClearRipple = (key: number) => {
-    ripples.value = ripples.value.filter((ripple) => ripple.key !== key)
-  }
+    return result
+  })
 
   // Event handlers
   const handlePress = (e: MouseEvent) => {
-    if (isDisabled) return
+    if (isDisabled.value) return
 
     isPressed.value = true
-    onRipplePress(e)
+    props.onPress?.(e)
+    props.onClick?.(e)
 
-    // Chain onPress and onClick
-    onPress?.(e)
-    onClick?.(e)
-
-    // Reset pressed state after a short delay
     setTimeout(() => {
       isPressed.value = false
     }, 100)
@@ -199,7 +158,6 @@ export function useButton(props: UseButtonProps) {
 
   const handleFocus = () => {
     isFocused.value = true
-    // Simple focus-visible detection (keyboard navigation)
     isFocusVisible.value = true
   }
 
@@ -209,7 +167,7 @@ export function useButton(props: UseButtonProps) {
   }
 
   const handleMouseEnter = () => {
-    if (!isDisabled) {
+    if (!isDisabled.value) {
       isHovered.value = true
     }
   }
@@ -221,15 +179,15 @@ export function useButton(props: UseButtonProps) {
   // Button props
   const buttonProps = computed(() => ({
     ref: buttonRef,
-    type: Component === 'button' ? type : undefined,
+    type: Component.value === 'button' ? (props.type ?? 'button') : undefined,
     class: styles.value,
-    disabled: isDisabled,
-    'data-disabled': dataAttr(isDisabled),
+    disabled: isDisabled.value,
+    'data-disabled': dataAttr(isDisabled.value),
     'data-focus': dataAttr(isFocused.value),
     'data-pressed': dataAttr(isPressed.value),
     'data-focus-visible': dataAttr(isFocusVisible.value),
     'data-hover': dataAttr(isHovered.value),
-    'data-loading': dataAttr(isLoading),
+    'data-loading': dataAttr(isLoading.value),
     onClick: handlePress,
     onFocus: handleFocus,
     onBlur: handleBlur,
@@ -237,39 +195,16 @@ export function useButton(props: UseButtonProps) {
     onMouseleave: handleMouseLeave,
   }))
 
-  // Process icons
-  const startContent = computed(() => startContentProp)
-  const endContent = computed(() => endContentProp)
-
-  // Spinner size based on button size
-  // const spinnerSize = computed((): SpinnerProps['size'] => {
-  //   const sizeMap: Record<string, SpinnerProps['size']> = {
-  //     sm: 'sm',
-  //     md: 'sm',
-  //     lg: 'md',
-  //   }
-  //   return sizeMap[size]
-  // })
-
-  // Ripple props
-  const rippleProps = computed(() => ({
-    ripples: ripples.value,
-    onClear: onClearRipple,
-  }))
-
   return {
     Component,
     buttonRef,
-    spinner,
     styles,
-    startContent,
-    endContent,
+    startContent: computed(() => props.startContent),
+    endContent: computed(() => props.endContent),
     isLoading,
-    spinnerPlacement,
-    // spinnerSize,
+    spinnerPlacement: computed(() => props.spinnerPlacement ?? 'start'),
     disableRipple,
     buttonProps,
-    rippleProps,
     isIconOnly,
   }
 }

@@ -6,11 +6,12 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
-    "type-check": "turbo type-check"
+    "type-check": "turbo type-check",
+    "story:dev": "pnpm --filter @veroui/storybook dev",
+    "story:build": "pnpm --filter @veroui/storybook build",
+    "story:preview": "pnpm --filter @veroui/storybook preview"
   },
   "devDependencies": {
-    "@histoire/plugin-vue": "1.0.0-alpha.4",
-    "histoire": "1.0.0-alpha.4",
     "turbo": "latest"
   },
   "packageManager": "pnpm@9.0.0",
