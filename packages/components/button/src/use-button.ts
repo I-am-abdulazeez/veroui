@@ -100,9 +100,8 @@ export interface UseButtonProps extends ButtonVariantProps {
   onClick?: (e: MouseEvent) => void
 }
 export function useButton(props: UseButtonProps) {
-  const groupContext = useButtonGroupContext()
-  const isInGroup = !!groupContext
-
+  const groupContextRef = useButtonGroupContext()
+  const isInGroup = computed(() => !!groupContextRef?.value)
   const buttonRef = ref<HTMLButtonElement | null>(null)
 
   // Focus state management
@@ -111,15 +110,16 @@ export function useButton(props: UseButtonProps) {
   const isPressed = ref(false)
   const isHovered = ref(false)
 
-  const size = computed(() => props.size ?? groupContext?.size ?? 'md')
-  const color = computed(() => props.color ?? groupContext?.color ?? 'default')
-  const variant = computed(() => props.variant ?? groupContext?.variant ?? 'solid')
-  const radius = computed(() => props.radius ?? groupContext?.radius)
-  const fullWidth = computed(() => props.fullWidth ?? groupContext?.fullWidth ?? false)
-  const isIconOnly = computed(() => props.isIconOnly ?? groupContext?.isIconOnly ?? false)
-  const disableAnimation = computed(() => props.disableAnimation ?? groupContext?.disableAnimation ?? false)
+  // Access groupContextRef.value reactively
+  const size = computed(() => props.size ?? groupContextRef?.value?.size ?? 'md')
+  const color = computed(() => props.color ?? groupContextRef?.value?.color ?? 'default')
+  const variant = computed(() => props.variant ?? groupContextRef?.value?.variant ?? 'solid')
+  const radius = computed(() => props.radius ?? groupContextRef?.value?.radius)
+  const fullWidth = computed(() => props.fullWidth ?? groupContextRef?.value?.fullWidth ?? false)
+  const isIconOnly = computed(() => props.isIconOnly ?? groupContextRef?.value?.isIconOnly ?? false)
+  const disableAnimation = computed(() => props.disableAnimation ?? groupContextRef?.value?.disableAnimation ?? false)
   const isLoading = computed(() => props.isLoading ?? false)
-  const isDisabled = computed(() => (props.isDisabled ?? groupContext?.isDisabled ?? false) || isLoading.value)
+  const isDisabled = computed(() => (props.isDisabled ?? groupContextRef?.value?.isDisabled ?? false) || isLoading.value)
 
   const Component = computed(() => props.as || 'button')
   const disableRipple = computed(() => (props.disableRipple ?? true) || disableAnimation.value)
@@ -132,19 +132,13 @@ export function useButton(props: UseButtonProps) {
       radius: radius.value,
       fullWidth: fullWidth.value,
       isDisabled: isDisabled.value,
-      isInGroup,
+      isInGroup: isInGroup.value,
       disableAnimation: disableAnimation.value,
       isIconOnly: isIconOnly.value,
       className: props.className,
     }
 
-    console.log('=== BUTTON DEBUG ===')
-    console.log('Config passed to button():', config)
-
     const result = button(config)
-    console.log('Result from button():', result)
-    console.log('Type of result:', typeof result)
-    console.log('===================')
 
     return result
   })
