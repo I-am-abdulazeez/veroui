@@ -55,6 +55,49 @@ importers:
         specifier: ^2.0.0
         version: 2.2.12(typescript@5.8.2)
 
+  packages/components/spinner:
+    dependencies:
+      '@iconify/vue':
+        specifier: ^4.1.1
+        version: 4.3.0(vue@3.5.22(typescript@5.8.2))
+      '@veroui/composables':
+        specifier: workspace:*
+        version: link:../../composables
+      '@veroui/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@veroui/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      '@veroui/vue-utils':
+        specifier: workspace:*
+        version: link:../../utilities/vue-utils
+    devDependencies:
+      '@veroui/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@vitejs/plugin-vue':
+        specifier: ^6.0.1
+        version: 6.0.1(vite@7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))(vue@3.5.22(typescript@5.8.2))
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      typescript:
+        specifier: ~5.8.2
+        version: 5.8.2
+      vite:
+        specifier: ^7.1.12
+        version: 7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1)
+      vite-plugin-dts:
+        specifier: ^4.5.4
+        version: 4.5.4(@types/node@20.19.22)(rollup@4.52.5)(typescript@5.8.2)(vite@7.1.12(@types/node@20.19.22)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.1))
+      vue:
+        specifier: ^3.5.2
+        version: 3.5.22(typescript@5.8.2)
+      vue-tsc:
+        specifier: ^2.0.0
+        version: 2.2.12(typescript@5.8.2)
+
   packages/composables:
     dependencies:
       '@veroui/shared-utils':
@@ -183,6 +226,9 @@ importers:
       '@veroui/button':
         specifier: workspace:*
         version: link:../components/button
+      '@veroui/spinner':
+        specifier: workspace:*
+        version: link:../components/spinner
       '@veroui/system':
         specifier: workspace:*
         version: link:../core/system
