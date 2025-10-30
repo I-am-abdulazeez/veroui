@@ -1,0 +1,53 @@
+{
+  "name": "@veroui/ripple",
+  "version": "0.0.1",
+  "description": "VeroUI Ripple component",
+  "keywords": [
+    "veroui",
+    "ripple",
+    "loader",
+    "vue"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite build --watch",
+    "type-check": "vue-tsc --noEmit",
+    "clean": "clean-package dist .turbo"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@veroui/composables": "workspace:*",
+    "@veroui/shared-utils": "workspace:*",
+    "@veroui/theme": "workspace:*",
+    "@veroui/vue-utils": "workspace:*",
+    "motion-v": "^1.7.4"
+  },
+  "devDependencies": {
+    "@veroui/system": "workspace:*",
+    "@veroui/theme": "workspace:*",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "clean-package": "2.2.0",
+    "typescript": "~5.8.2",
+    "vite": "^7.1.12",
+    "vite-plugin-dts": "^4.5.4",
+    "vue": "^3.5.2",
+    "vue-tsc": "^2.0.0"
+  }
+}
