@@ -1,0 +1,58 @@
+{
+  "name": "@veroui/shared-icons",
+  "version": "2.1.10",
+  "description": "Internal icons set, commonly used in the components stories",
+  "keywords": [
+    "icons-utils"
+  ],
+  "author": "VeroUI <support@veroui.com>",
+  "homepage": "https://veroui.com",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "default": "./dist/index.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/I-am-abdulazeez/veroui.git",
+    "directory": "packages/utilities/icons-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/I-am-abdulazeez/issues"
+  },
+  "scripts": {
+    "build": "vue-tsc --noEmit && vite build",
+    "dev": "vite build --watch",
+    "clean": "rimraf dist .turbo",
+    "type-check": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "vue": "^3.4.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0",
+    "react": ">=18 || >=19.0.0-rc.0"
+  },
+  "devDependencies": {
+    "clean-package": "2.2.0",
+    "react": "^18.3.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.9.3",
+    "vue": "^3.4.0",
+    "vite": "^7.1.12",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vue-tsc": "^2.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
