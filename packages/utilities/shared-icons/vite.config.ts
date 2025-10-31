@@ -1,9 +1,17 @@
 import vue from "@vitejs/plugin-vue";
+import dts from "vite-plugin-dts";
 import { resolve } from "node:path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    dts({
+      insertTypesEntry: true,
+      copyDtsFiles: false,
+      staticImport: true,
+    }),
+  ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
@@ -14,6 +22,7 @@ export default defineConfig({
       },
       formats: ["es"],
     },
+    sourcemap: false,
     rollupOptions: {
       external: ["vue"],
     },
