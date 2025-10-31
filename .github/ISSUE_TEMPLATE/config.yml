@@ -1,0 +1,14 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💡 Feature Request
+    url: https://github.com/I-am-abdulazeez/veroui/discussions/categories/feature-requests
+    about: 💡 Suggest a new component, improve an existing component, and more.
+  - name: 🤔 Long question or ideas?
+    url: https://github.com/I-am-abdulazeez/veroui/discussions
+    about: Ask long-form questions and discuss ideas.
+  - name: 💬 Discord Community Chat
+    url: https://discord.gg/9b6yyZKmH4
+    about: Ask quick questions or chat with others in the `VeroUI` community Discord server.
+  - name: 💬 New Updates (X)
+    url: https://x.com/veroui
+    about: Follow us on X (Twitter) to stay up to date with the latest VeroUI news and updates.
