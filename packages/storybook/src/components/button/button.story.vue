@@ -17,7 +17,6 @@ function initButtonState() {
     disableAnimation: false,
     fullWidth: false,
     isIconOnly: false,
-    spinnerPlacement: "start",
   });
 }
 
@@ -36,9 +35,9 @@ function initGroupState() {
 <template>
   <Story title="Components/Button" :layout="{ type: 'single', iframe: false }">
     <!-- ====================================================== -->
-    <!-- 1️⃣ DEFAULT - REACTIVE DEMO -->
+    <!-- PLAYGROUND - INTERACTIVE DEMO -->
     <!-- ====================================================== -->
-    <Variant title="Default (Button)" :init-state="initButtonState">
+    <Variant title="Playground (Button)" :init-state="initButtonState">
       <template #default="{ state }">
         <Button v-bind="state" @click="logEvent('Button clicked')">
           {{ state.children }}
@@ -89,7 +88,7 @@ function initGroupState() {
       </template>
     </Variant>
 
-    <Variant title="Default (Button Group)" :init-state="initGroupState">
+    <Variant title="Playground (Button Group)" :init-state="initGroupState">
       <template #default="{ state }">
         <ButtonGroup v-bind="state">
           <Button>One</Button>
@@ -140,180 +139,183 @@ function initGroupState() {
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 2️⃣ SIZES -->
+    <!-- COLORS -->
+    <!-- ====================================================== -->
+    <Variant title="Colors">
+      <div class="flex flex-wrap gap-3">
+        <Button color="default">Default</Button>
+        <Button color="primary">Primary</Button>
+        <Button color="secondary">Secondary</Button>
+        <Button color="success">Success</Button>
+        <Button color="warning">Warning</Button>
+        <Button color="danger">Danger</Button>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- VARIANTS -->
+    <!-- ====================================================== -->
+    <Variant title="Variants">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-wrap gap-3">
+          <Button variant="solid" color="primary">Solid</Button>
+          <Button variant="bordered" color="primary">Bordered</Button>
+          <Button variant="light" color="primary">Light</Button>
+          <Button variant="flat" color="primary">Flat</Button>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <Button variant="faded" color="primary">Faded</Button>
+          <Button variant="shadow" color="primary">Shadow</Button>
+          <Button variant="ghost" color="primary">Ghost</Button>
+        </div>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- SIZES -->
     <!-- ====================================================== -->
     <Variant title="Sizes">
-      <div class="flex flex-col gap-6">
-        <div class="flex gap-4 items-end flex-wrap">
-          <Button size="sm" color="primary">Small</Button>
-          <Button size="md" color="primary">Medium</Button>
-          <Button size="lg" color="primary">Large</Button>
-        </div>
-
-        <div class="flex gap-4 items-end flex-wrap">
-          <ButtonGroup size="sm">
-            <Button>Small</Button>
-            <Button>Group</Button>
-          </ButtonGroup>
-          <ButtonGroup size="md">
-            <Button>Medium</Button>
-            <Button>Group</Button>
-          </ButtonGroup>
-          <ButtonGroup size="lg">
-            <Button>Large</Button>
-            <Button>Group</Button>
-          </ButtonGroup>
-        </div>
+      <div class="flex gap-4 items-end flex-wrap">
+        <Button size="sm" color="primary">Small</Button>
+        <Button size="md" color="primary">Medium</Button>
+        <Button size="lg" color="primary">Large</Button>
       </div>
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 3️⃣ ALL VARIANTS (BUTTON) -->
+    <!-- RADIUS -->
     <!-- ====================================================== -->
-    <Variant title="All Variants (Button)">
-      <div class="flex flex-col gap-8">
-        <template
-          v-for="variant in [
-            'solid',
-            'bordered',
-            'light',
-            'flat',
-            'faded',
-            'shadow',
-            'ghost',
-          ]"
-          :key="variant"
-        >
-          <h4 class="capitalize font-medium">{{ variant }} variant</h4>
-          <div class="flex flex-wrap gap-3">
-            <Button
-              v-for="color in [
-                'default',
-                'primary',
-                'secondary',
-                'success',
-                'warning',
-                'danger',
-              ]"
-              :key="color + variant"
-              :variant="variant"
-              :color="color"
-              class="capitalize"
-            >
-              {{ color }}
-            </Button>
-          </div>
-        </template>
+    <Variant title="Radius">
+      <div class="flex flex-wrap gap-3">
+        <Button radius="none" color="primary">None</Button>
+        <Button radius="sm" color="primary">Small</Button>
+        <Button radius="md" color="primary">Medium</Button>
+        <Button radius="lg" color="primary">Large</Button>
+        <Button radius="full" color="primary">Full</Button>
       </div>
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 4️⃣ ALL VARIANTS (BUTTON GROUP) -->
-    <!-- ====================================================== -->
-    <Variant title="All Variants (Button Group)">
-      <div class="flex flex-col gap-8">
-        <template
-          v-for="variant in [
-            'solid',
-            'bordered',
-            'light',
-            'flat',
-            'faded',
-            'shadow',
-            'ghost',
-          ]"
-          :key="variant"
-        >
-          <h4 class="capitalize font-medium">{{ variant }} variant</h4>
-          <div class="flex flex-wrap gap-3">
-            <ButtonGroup
-              v-for="color in [
-                'default',
-                'primary',
-                'secondary',
-                'success',
-                'warning',
-                'danger',
-              ]"
-              :key="color + variant"
-              :variant="variant"
-              :color="color"
-            >
-              <Button>{{ color }}</Button>
-              <Button>Group</Button>
-            </ButtonGroup>
-          </div>
-        </template>
-      </div>
-    </Variant>
-
-    <!-- ====================================================== -->
-    <!-- 5️⃣ WITH ICONS -->
+    <!-- WITH ICONS -->
     <!-- ====================================================== -->
     <Variant title="With Icons">
-      <div class="flex flex-col gap-4">
+      <div class="flex flex-wrap gap-3">
         <Button color="primary">
           <template #startContent>
-            <Icon icon="lucide:bell" />
+            <Icon icon="lucide:bell" class="w-4 h-4" />
           </template>
-          Notifications
+          Start Icon
+        </Button>
+        <Button color="secondary">
+          End Icon
           <template #endContent>
-            <Icon icon="lucide:camera" />
+            <Icon icon="lucide:camera" class="w-4 h-4" />
           </template>
         </Button>
-
-        <ButtonGroup color="primary">
-          <Button>
-            <template #startContent>
-              <Icon icon="lucide:home" class="w-4 h-4" />
-            </template>
-            Home
-          </Button>
-          <Button>
-            Profile
-            <template #endContent>
-              <Icon icon="lucide:user" class="w-4 h-4" />
-            </template>
-          </Button>
-          <Button>
-            <template #startContent>
-              <Icon icon="lucide:settings" class="w-4 h-4" />
-            </template>
-            Settings
-          </Button>
-        </ButtonGroup>
+        <Button color="success">
+          <template #startContent>
+            <Icon icon="lucide:download" class="w-4 h-4" />
+          </template>
+          Both Icons
+          <template #endContent>
+            <Icon icon="lucide:arrow-right" class="w-4 h-4" />
+          </template>
+        </Button>
       </div>
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 6️⃣ STATES -->
+    <!-- ICON ONLY -->
     <!-- ====================================================== -->
-    <Variant title="Disabled & Loading">
-      <div class="flex flex-col gap-4">
-        <Button color="danger" is-disabled>Disabled</Button>
+    <Variant title="Icon Only">
+      <div class="flex flex-wrap gap-3 items-center">
+        <Button is-icon-only color="default">
+          <Icon icon="lucide:heart" class="w-5 h-5" />
+        </Button>
+        <Button is-icon-only color="primary">
+          <Icon icon="lucide:search" class="w-5 h-5" />
+        </Button>
+        <Button is-icon-only color="secondary">
+          <Icon icon="lucide:settings" class="w-5 h-5" />
+        </Button>
+        <Button is-icon-only color="success" radius="full">
+          <Icon icon="lucide:check" class="w-5 h-5" />
+        </Button>
+        <Button is-icon-only color="danger" radius="full">
+          <Icon icon="lucide:x" class="w-5 h-5" />
+        </Button>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- STATES -->
+    <!-- ====================================================== -->
+    <Variant title="Loading">
+      <div class="flex flex-wrap gap-3">
         <Button color="primary" is-loading>Loading</Button>
-        <ButtonGroup color="danger" is-disabled>
-          <Button>Cannot</Button>
-          <Button>Click</Button>
-          <Button>These</Button>
-        </ButtonGroup>
+        <Button color="secondary" is-loading spinner-placement="end">
+          Loading End
+        </Button>
+        <Button color="success" is-loading>
+          <template #startContent>
+            <Icon icon="lucide:save" class="w-4 h-4" />
+          </template>
+          Saving
+        </Button>
+      </div>
+    </Variant>
+
+    <Variant title="Disabled">
+      <div class="flex flex-wrap gap-3">
+        <Button color="default" is-disabled>Disabled</Button>
+        <Button color="primary" is-disabled>Disabled</Button>
+        <Button color="danger" is-disabled>Disabled</Button>
       </div>
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 7️⃣ SHAPE & LAYOUT -->
+    <!-- FULL WIDTH -->
     <!-- ====================================================== -->
-    <Variant title="Rounded & Full Width">
+    <Variant title="Full Width">
+      <div class="flex flex-col gap-3">
+        <Button color="primary" full-width>Full Width Button</Button>
+        <Button color="secondary" full-width variant="bordered">
+          Full Width Bordered
+        </Button>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- CUSTOM STYLING -->
+    <!-- ====================================================== -->
+    <Variant title="Custom Styling">
+      <div class="flex flex-wrap gap-3">
+        <Button
+          radius="full"
+          class="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+        >
+          Gradient Button
+        </Button>
+        <Button
+          radius="full"
+          class="bg-gradient-to-br from-purple-500 to-blue-500 text-white"
+        >
+          Purple to Blue
+        </Button>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- BUTTON GROUP - BASIC -->
+    <!-- ====================================================== -->
+    <Variant title="Button Group - Basic">
       <div class="flex flex-col gap-4">
-        <ButtonGroup radius="none" color="primary">
-          <Button>Square</Button>
-          <Button>Edges</Button>
+        <ButtonGroup color="primary">
+          <Button>One</Button>
+          <Button>Two</Button>
+          <Button>Three</Button>
         </ButtonGroup>
-        <ButtonGroup radius="full" color="success">
-          <Button>Pill</Button>
-          <Button>Shape</Button>
-        </ButtonGroup>
-        <ButtonGroup full-width color="secondary">
+        <ButtonGroup color="secondary" variant="bordered">
           <Button>Left</Button>
           <Button>Center</Button>
           <Button>Right</Button>
@@ -322,55 +324,97 @@ function initGroupState() {
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 8️⃣ MIXED STATES -->
+    <!-- BUTTON GROUP - SIZES -->
     <!-- ====================================================== -->
-    <Variant title="Mixed States">
-      <ButtonGroup color="warning">
-        <Button>Active</Button>
-        <Button :is-disabled="true">Disabled</Button>
-        <Button>Active</Button>
+    <Variant title="Button Group - Sizes">
+      <div class="flex flex-col gap-4">
+        <ButtonGroup size="sm" color="primary">
+          <Button>Small</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
+        <ButtonGroup size="md" color="primary">
+          <Button>Medium</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
+        <ButtonGroup size="lg" color="primary">
+          <Button>Large</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- BUTTON GROUP - WITH ICONS -->
+    <!-- ====================================================== -->
+    <Variant title="Button Group - With Icons">
+      <ButtonGroup color="primary">
+        <Button>
+          <template #startContent>
+            <Icon icon="lucide:home" class="w-4 h-4" />
+          </template>
+          Home
+        </Button>
+        <Button>
+          <template #startContent>
+            <Icon icon="lucide:user" class="w-4 h-4" />
+          </template>
+          Profile
+        </Button>
+        <Button>
+          <template #startContent>
+            <Icon icon="lucide:settings" class="w-4 h-4" />
+          </template>
+          Settings
+        </Button>
       </ButtonGroup>
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 9️⃣ THEME COLORS TEST -->
+    <!-- BUTTON GROUP - VARIANTS -->
     <!-- ====================================================== -->
-    <Variant title="Theme Colors Test">
+    <Variant title="Button Group - Variants">
       <div class="flex flex-col gap-4">
-        <div class="bg-primary text-primary-foreground p-4 rounded">
-          Primary
-        </div>
-        <div class="bg-secondary text-secondary-foreground p-4 rounded">
-          Secondary
-        </div>
-        <div class="bg-success text-success-foreground p-4 rounded">
-          Success
-        </div>
-        <div class="bg-warning text-warning-foreground p-4 rounded">
-          Warning
-        </div>
-        <div class="bg-danger text-danger-foreground p-4 rounded">Danger</div>
-        <div class="bg-default text-default-foreground p-4 rounded">
-          Default
-        </div>
+        <ButtonGroup variant="solid" color="primary">
+          <Button>Solid</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
+        <ButtonGroup variant="bordered" color="secondary">
+          <Button>Bordered</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
+        <ButtonGroup variant="flat" color="success">
+          <Button>Flat</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
       </div>
     </Variant>
 
     <!-- ====================================================== -->
-    <!-- 🔟 CUSTOM -->
+    <!-- BUTTON GROUP - STATES -->
     <!-- ====================================================== -->
-    <Variant title="Custom & Icon Only">
-      <div class="flex flex-wrap gap-4 items-center">
-        <Button
-          radius="full"
-          class="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-        >
-          Gradient Button
-        </Button>
-        <Button is-icon-only color="primary">
-          <Icon icon="lucide:headphones" class="w-5 h-5" />
-        </Button>
+    <Variant title="Button Group - States">
+      <div class="flex flex-col gap-4">
+        <ButtonGroup color="danger" is-disabled>
+          <Button>Disabled</Button>
+          <Button>Group</Button>
+        </ButtonGroup>
+        <ButtonGroup color="warning">
+          <Button>Active</Button>
+          <Button is-disabled>Disabled</Button>
+          <Button>Active</Button>
+        </ButtonGroup>
       </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- BUTTON GROUP - FULL WIDTH -->
+    <!-- ====================================================== -->
+    <Variant title="Button Group - Full Width">
+      <ButtonGroup full-width color="primary">
+        <Button>Left</Button>
+        <Button>Center</Button>
+        <Button>Right</Button>
+      </ButtonGroup>
     </Variant>
   </Story>
 </template>
