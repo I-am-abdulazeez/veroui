@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { Spinner } from "@veroui/spinner";
-import { logEvent } from "histoire/client";
 
 function initState() {
   return reactive({
