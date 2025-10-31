@@ -1,0 +1,160 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior in VeroUI
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug! Please fill out the information below to help us resolve the issue.
+
+        **Before submitting:** Search existing issues to avoid duplicates.
+
+  - type: checkboxes
+    id: prerequisites
+    attributes:
+      label: Prerequisites
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to ensure this bug hasn't been reported
+          required: true
+        - label: I have tested with the latest version of VeroUI
+          required: true
+        - label: I have read the [Contributing Guidelines](https://github.com/I-am-abdulazeez/veroui/blob/master/CONTRIBUTING.md)
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the bug
+      placeholder: What happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+      placeholder: Describe the expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened?
+      placeholder: Describe what actually happened
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-link
+    attributes:
+      label: Reproduction Link
+      description: Please provide a minimal reproduction (CodeSandbox, StackBlitz, GitHub repo, etc.)
+      placeholder: https://stackblitz.com/...
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component(s)
+      description: Which component(s) are affected?
+      multiple: true
+      options:
+        - Button
+        - Spinner
+        - Theme System
+        - Composables
+        - Provider
+        - Other (specify in description)
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: VeroUI Version
+      description: Which version are you using?
+      placeholder: e.g., 0.1.0
+    validations:
+      required: true
+
+  - type: input
+    id: vue-version
+    attributes:
+      label: Vue Version
+      description: Which Vue version?
+      placeholder: e.g., 3.4.21
+    validations:
+      required: true
+
+  - type: dropdown
+    id: package-manager
+    attributes:
+      label: Package Manager
+      options:
+        - pnpm
+        - npm
+        - yarn
+        - bun
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browser(s)
+      description: Which browser(s) does this occur in?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other (specify in description)
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating System
+      description: Which OS?
+      placeholder: e.g., macOS 14.2, Windows 11, Ubuntu 22.04
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots/Videos
+      description: If applicable, add screenshots or videos to help explain the problem
+      placeholder: Drag and drop images here
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context about the problem
+      placeholder: Add any other relevant information
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

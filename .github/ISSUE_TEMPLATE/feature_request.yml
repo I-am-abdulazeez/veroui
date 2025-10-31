@@ -1,0 +1,98 @@
+name: 💡 Feature Request
+description: Suggest a new feature or enhancement for VeroUI
+title: "[FEATURE] - "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature! 🎉
+
+        **Before submitting**, please check:
+         - [Feature Requests Discussion](https://github.com/I-am-abdulazeez/veroui/discussions/categories/ideas)
+         - [Open Issues](https://github.com/I-am-abdulazeez/veroui/issues)
+         - [Component Checklist](https://github.com/I-am-abdulazeez/veroui/blob/master/README.md#-component-checklist)
+
+        **For general ideas**, consider posting in [Discussions](https://github.com/I-am-abdulazeez/veroui/discussions/categories/ideas) first.
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What type of feature are you requesting?
+      options:
+        - New Component
+        - Component Enhancement
+        - Composable/Hook
+        - Theme/Styling
+        - Documentation
+        - Developer Experience
+        - Performance
+        - Accessibility
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the Feature
+      description: A clear and concise description of the feature you'd like to see.
+      placeholder: I would like to see...
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? What's the use case?
+      placeholder: |
+        This feature would help with...
+        Currently, I have to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How would you like this feature to work?
+      placeholder: |
+        The feature could work by...
+        It would allow users to...
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples from Other Libraries
+      description: Are there similar features in HeroUI, NextUI, Element Plus, or other libraries?
+      placeholder: |
+        - HeroUI: [description or link]
+        - Element Plus: [description or link]
+
+  - type: input
+    id: link
+    attributes:
+      label: Example or Mockup
+      description: Link to a design, mockup, or working example (StackBlitz, CodeSandbox, Figma, etc.)
+      placeholder: https://stackblitz.com/... or https://figma.com/...
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Any other context, screenshots, or information about the feature.
+      placeholder: Add any other relevant information...
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Are you willing to help?
+      description: Would you like to contribute to this feature?
+      options:
+        - label: I'm willing to submit a PR for this feature
+        - label: I can help with documentation
+        - label: I can help with testing
