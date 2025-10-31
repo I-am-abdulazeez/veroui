@@ -18,12 +18,7 @@ function initState() {
     <!-- Default - WITH REACTIVE STATE -->
     <Variant title="Default" :init-state="initState">
       <template #default="{ state }">
-        <Spinner
-          :variant="state.variant"
-          :color="state.color"
-          :size="state.size"
-          :label="state.label"
-        />
+        <Spinner v-bind="state" />
       </template>
 
       <template #controls="{ state }">
