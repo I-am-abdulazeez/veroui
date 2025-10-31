@@ -13,7 +13,7 @@ function initButtonState() {
     radius: "md",
     isDisabled: false,
     isLoading: false,
-    disableRipple: true,
+    disableRipple: false,
     disableAnimation: false,
     fullWidth: false,
     isIconOnly: false,
