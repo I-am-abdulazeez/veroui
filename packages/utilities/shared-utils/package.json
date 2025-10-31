@@ -1,38 +1,38 @@
 {
-  "name": "@veroui/shared-utils",
-  "version": "0.0.1",
-  "description": "VeroUI utility functions for shared usage",
-  "keywords": [
-    "veroui",
-    "utils",
-    "vue",
-    "utilities"
-  ],
-  "license": "MIT",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "sideEffects": false,
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+    "name": "@veroui/shared-utils",
+    "version": "0.0.1",
+    "description": "VeroUI utility functions for shared usage",
+    "keywords": [
+        "veroui",
+        "utils",
+        "vue",
+        "utilities"
+    ],
+    "license": "MIT",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "sideEffects": false,
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js"
+        }
+    },
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "clean": "rimraf dist .turbo",
+        "type-check": "tsc --noEmit"
+    },
+    "devDependencies": {
+        "@types/node": "^20.0.0",
+        "rimraf": "^5.0.0",
+        "tsup": "^8.5.0",
+        "typescript": "^5.3.0"
     }
-  },
-  "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "clean": "clean-package dist .turbo",
-    "type-check": "tsc --noEmit"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "clean-package": "2.2.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.3.0"
-  }
 }
