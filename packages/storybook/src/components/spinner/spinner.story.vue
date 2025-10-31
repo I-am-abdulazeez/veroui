@@ -14,8 +14,10 @@ function initState() {
 
 <template>
   <Story title="Components/Spinner" :layout="{ type: 'single', iframe: false }">
-    <!-- Default - WITH REACTIVE STATE -->
-    <Variant title="Default" :init-state="initState">
+    <!-- ====================================================== -->
+    <!-- PLAYGROUND - INTERACTIVE DEMO -->
+    <!-- ====================================================== -->
+    <Variant title="Playground" :init-state="initState">
       <template #default="{ state }">
         <Spinner v-bind="state" />
       </template>
@@ -49,25 +51,9 @@ function initState() {
       </template>
     </Variant>
 
-    <!-- ALL SIZES -->
-    <Variant title="Sizes">
-      <div class="flex items-center gap-8">
-        <div class="flex flex-col items-center gap-2">
-          <Spinner size="sm" color="primary" />
-          <span class="text-xs text-default-500">Small</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <Spinner size="md" color="primary" />
-          <span class="text-xs text-default-500">Medium</span>
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <Spinner size="lg" color="primary" />
-          <span class="text-xs text-default-500">Large</span>
-        </div>
-      </div>
-    </Variant>
-
-    <!-- ALL COLORS -->
+    <!-- ====================================================== -->
+    <!-- COLORS -->
+    <!-- ====================================================== -->
     <Variant title="Colors">
       <div class="flex items-center gap-6 flex-wrap">
         <div class="flex flex-col items-center gap-2">
@@ -107,66 +93,57 @@ function initState() {
       </div>
     </Variant>
 
-    <!-- ALL VARIANTS -->
-    <Variant title="Variants - Default">
-      <div class="flex items-center gap-6 flex-wrap">
-        <Spinner variant="default" color="primary" label="Default" />
-      </div>
-    </Variant>
-
-    <Variant title="Variants - Simple">
-      <div class="flex items-center gap-6 flex-wrap">
-        <Spinner variant="simple" color="primary" label="Simple" />
-      </div>
-    </Variant>
-
-    <Variant title="Variants - Spinner (12 bars)">
-      <div class="flex items-center gap-6 flex-wrap">
-        <Spinner variant="spinner" color="primary" label="Spinner" />
-      </div>
-    </Variant>
-
-    <Variant title="Variants - Wave">
-      <div class="flex items-center gap-6 flex-wrap">
-        <Spinner variant="wave" color="primary" label="Wave" />
-      </div>
-    </Variant>
-
-    <Variant title="Variants - Dots">
-      <div class="flex items-center gap-6 flex-wrap">
-        <Spinner variant="dots" color="primary" label="Dots" />
-      </div>
-    </Variant>
-
-    <!-- ALL VARIANTS COMPARISON -->
-    <Variant title="All Variants Comparison">
-      <div class="flex flex-col gap-8">
-        <div class="flex items-center gap-8 flex-wrap">
-          <div class="flex flex-col items-center gap-2">
-            <Spinner variant="default" color="primary" size="lg" />
-            <span class="text-xs">Default</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <Spinner variant="simple" color="primary" size="lg" />
-            <span class="text-xs">Simple</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <Spinner variant="spinner" color="primary" size="lg" />
-            <span class="text-xs">Spinner</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <Spinner variant="wave" color="primary" size="lg" />
-            <span class="text-xs">Wave</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <Spinner variant="dots" color="primary" size="lg" />
-            <span class="text-xs">Dots</span>
-          </div>
+    <!-- ====================================================== -->
+    <!-- VARIANTS -->
+    <!-- ====================================================== -->
+    <Variant title="Variants">
+      <div class="flex items-center gap-8 flex-wrap">
+        <div class="flex flex-col items-center gap-2">
+          <Spinner variant="default" color="primary" size="lg" />
+          <span class="text-xs">Default</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Spinner variant="simple" color="primary" size="lg" />
+          <span class="text-xs">Simple</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Spinner variant="spinner" color="primary" size="lg" />
+          <span class="text-xs">Spinner</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Spinner variant="wave" color="primary" size="lg" />
+          <span class="text-xs">Wave</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Spinner variant="dots" color="primary" size="lg" />
+          <span class="text-xs">Dots</span>
         </div>
       </div>
     </Variant>
 
+    <!-- ====================================================== -->
+    <!-- SIZES -->
+    <!-- ====================================================== -->
+    <Variant title="Sizes">
+      <div class="flex items-center gap-8">
+        <div class="flex flex-col items-center gap-2">
+          <Spinner size="sm" color="primary" />
+          <span class="text-xs text-default-500">Small</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Spinner size="md" color="primary" />
+          <span class="text-xs text-default-500">Medium</span>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <Spinner size="lg" color="primary" />
+          <span class="text-xs text-default-500">Large</span>
+        </div>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
     <!-- WITH LABELS -->
+    <!-- ====================================================== -->
     <Variant title="With Labels">
       <div class="flex flex-col gap-6">
         <Spinner color="primary" label="Loading..." />
@@ -177,8 +154,10 @@ function initState() {
       </div>
     </Variant>
 
+    <!-- ====================================================== -->
     <!-- REAL WORLD EXAMPLES -->
-    <Variant title="Real World - Loading Card">
+    <!-- ====================================================== -->
+    <Variant title="Example: Loading Card">
       <div class="max-w-md p-6 border border-default-200 rounded-lg">
         <div class="flex flex-col items-center justify-center gap-4 py-8">
           <Spinner size="lg" color="primary" />
@@ -190,25 +169,39 @@ function initState() {
       </div>
     </Variant>
 
-    <Variant title="Real World - Inline Button">
-      <div class="flex gap-4">
+    <Variant title="Example: Button Loading State">
+      <div class="flex gap-4 flex-wrap">
         <button
-          class="px-6 py-2 bg-primary text-primary-foreground rounded-md flex items-center gap-2"
+          class="px-6 py-2 bg-primary text-primary-foreground rounded-md flex items-center gap-2 font-medium"
         >
           <Spinner size="sm" color="white" />
           <span>Processing...</span>
         </button>
         <button
-          class="px-6 py-2 bg-secondary text-secondary-foreground rounded-md flex items-center gap-2"
+          class="px-6 py-2 bg-secondary text-secondary-foreground rounded-md flex items-center gap-2 font-medium"
         >
           <Spinner size="sm" color="white" variant="dots" />
           <span>Uploading...</span>
         </button>
+        <button
+          class="px-6 py-2 border-2 border-primary text-primary rounded-md flex items-center gap-2 font-medium"
+        >
+          <Spinner size="sm" color="current" variant="simple" />
+          <span>Saving...</span>
+        </button>
       </div>
     </Variant>
 
-    <Variant title="Real World - Full Page Overlay">
+    <Variant title="Example: Full Page Overlay">
       <div class="relative h-96 bg-default-100 rounded-lg overflow-hidden">
+        <!-- Mock content -->
+        <div class="p-6 space-y-4">
+          <div class="h-8 bg-default-200 rounded w-1/3"></div>
+          <div class="h-4 bg-default-200 rounded w-full"></div>
+          <div class="h-4 bg-default-200 rounded w-5/6"></div>
+        </div>
+
+        <!-- Overlay -->
         <div
           class="absolute inset-0 flex items-center justify-center bg-background/80 backdrop-blur-sm"
         >
@@ -220,24 +213,60 @@ function initState() {
       </div>
     </Variant>
 
-    <!-- Color Test -->
-    <Variant title="Theme Colors Test">
+    <Variant title="Example: Inline Text">
       <div class="flex flex-col gap-4">
-        <div class="bg-primary text-primary-foreground p-4 rounded">
-          Primary - Should be blue background
-        </div>
-        <div class="bg-secondary text-secondary-foreground p-4 rounded">
-          Secondary - Should have secondary color
-        </div>
-        <div class="bg-success text-success-foreground p-4 rounded">
-          Success - Should be green background
-        </div>
-        <div class="bg-warning text-warning-foreground p-4 rounded">
-          Warning - Should be yellow/orange background
-        </div>
-        <div class="bg-danger text-danger-foreground p-4 rounded">
-          Danger - Should be red background
-        </div>
+        <p class="text-sm flex items-center gap-2">
+          <Spinner size="sm" color="primary" variant="simple" />
+          <span>Fetching latest updates...</span>
+        </p>
+        <p class="text-sm flex items-center gap-2">
+          <Spinner size="sm" color="success" variant="dots" />
+          <span>Successfully saved your changes</span>
+        </p>
+        <p class="text-sm flex items-center gap-2">
+          <Spinner size="sm" color="warning" variant="wave" />
+          <span>Synchronizing with server...</span>
+        </p>
+      </div>
+    </Variant>
+
+    <!-- ====================================================== -->
+    <!-- VARIANT SHOWCASE -->
+    <!-- ====================================================== -->
+    <Variant title="Variant Showcase: Default">
+      <div class="flex flex-col items-center gap-4 p-8">
+        <Spinner variant="default" color="primary" size="lg" />
+        <p class="text-sm text-default-500">
+          Circular spinner with rotating border
+        </p>
+      </div>
+    </Variant>
+
+    <Variant title="Variant Showcase: Simple">
+      <div class="flex flex-col items-center gap-4 p-8">
+        <Spinner variant="simple" color="primary" size="lg" />
+        <p class="text-sm text-default-500">Simple rotating circle</p>
+      </div>
+    </Variant>
+
+    <Variant title="Variant Showcase: Spinner (12 bars)">
+      <div class="flex flex-col items-center gap-4 p-8">
+        <Spinner variant="spinner" color="primary" size="lg" />
+        <p class="text-sm text-default-500">Classic 12-bar spinner animation</p>
+      </div>
+    </Variant>
+
+    <Variant title="Variant Showcase: Wave">
+      <div class="flex flex-col items-center gap-4 p-8">
+        <Spinner variant="wave" color="primary" size="lg" />
+        <p class="text-sm text-default-500">Smooth wave animation</p>
+      </div>
+    </Variant>
+
+    <Variant title="Variant Showcase: Dots">
+      <div class="flex flex-col items-center gap-4 p-8">
+        <Spinner variant="dots" color="primary" size="lg" />
+        <p class="text-sm text-default-500">Bouncing dots animation</p>
       </div>
     </Variant>
   </Story>
