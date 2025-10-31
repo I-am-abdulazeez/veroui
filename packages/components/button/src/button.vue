@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { useButton } from "./use-button";
-// import { Ripple } from "@veroui/ripple";
+import { Ripple } from "@veroui/ripple";
 import type { Color, Radius, Size, SpinnerPlacement, Variant } from "./types";
 
 const props = defineProps({
@@ -100,6 +100,12 @@ const {
 
 <template>
   <component :is="Component" v-bind="buttonProps">
+    <Ripple
+      v-if="!disableRipple"
+      :ripples="ripples"
+      :on-clear="onClearRipple"
+    />
+
     <!-- Start Content -->
     <slot v-if="slots.startContent" name="startContent" />
     <template v-else-if="startContent">
@@ -133,15 +139,10 @@ const {
       color="current"
     />
 
+    <!-- End Content -->
     <slot v-if="slots.endContent" name="endContent" />
     <template v-else-if="endContent">
       {{ endContent }}
     </template>
-    <!--
-    <Ripple
-      v-if="!disableRipple"
-      :ripples="ripples"
-      :on-clear="onClearRipple"
-    /> -->
   </component>
 </template>
