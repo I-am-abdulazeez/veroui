@@ -40,20 +40,7 @@ function initGroupState() {
     <!-- ====================================================== -->
     <Variant title="Default (Button)" :init-state="initButtonState">
       <template #default="{ state }">
-        <Button
-          :variant="state.variant"
-          :color="state.color"
-          :size="state.size"
-          :radius="state.radius"
-          :is-disabled="state.isDisabled"
-          :is-loading="state.isLoading"
-          :disable-ripple="state.disableRipple"
-          :disable-animation="state.disableAnimation"
-          :full-width="state.fullWidth"
-          :is-icon-only="state.isIconOnly"
-          :spinner-placement="state.spinnerPlacement"
-          @click="logEvent('Button clicked')"
-        >
+        <Button v-bind="state" @click="logEvent('Button clicked')">
           {{ state.children }}
         </Button>
       </template>
@@ -104,14 +91,7 @@ function initGroupState() {
 
     <Variant title="Default (Button Group)" :init-state="initGroupState">
       <template #default="{ state }">
-        <ButtonGroup
-          :variant="state.variant"
-          :color="state.color"
-          :size="state.size"
-          :radius="state.radius"
-          :is-disabled="state.isDisabled"
-          :full-width="state.fullWidth"
-        >
+        <ButtonGroup v-bind="state">
           <Button>One</Button>
           <Button>Two</Button>
           <Button>Three</Button>
