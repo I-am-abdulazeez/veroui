@@ -1,0 +1,14 @@
+export { default as AlignTopBoldIcon } from "./AlignTop.vue";
+export { default as AlignBottomBoldIcon } from "./AlignBottom.vue";
+export { default as AlignLeftBoldIcon } from "./AlignLeft.vue";
+export { default as AlignRightBoldIcon } from "./AlignRight.vue";
+export { default as AlignVerticallyBoldIcon } from "./AlignVertically.vue";
+export { default as AlignHorizontallyBoldIcon } from "./AlignHorizontally.vue";
+export { default as PetBoldIcon } from "./Pet.vue";
+export { default as VolumeHighBoldIcon } from "./VolumeHigh.vue";
+export { default as VolumeLowBoldIcon } from "./VolumeLow.vue";
+export { default as ShoppingCartBoldIcon } from "./ShoppingCart.vue";
+export { default as SendBoldIcon } from "./Send.vue";
+export { default as PlusBoldIcon } from "./Plus.vue";
+export { default as CalendarBoldIcon } from "./CalendarBold.vue";
+export { default as ClockSquareBoldIcon } from "./ClockSquareBold.vue";
