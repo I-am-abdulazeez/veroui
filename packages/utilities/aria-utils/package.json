@@ -1,0 +1,55 @@
+{
+  "name": "@veroui/aria-utils",
+  "version": "2.2.24",
+  "description": "A package for managing @react-aria HeroUI utils.",
+  "keywords": [
+    "aria-utils"
+  ],
+  "author": "VeroUI <support@veroui.com>",
+  "homepage": "https://veroui.com",
+  "license": "MIT",
+  "main": "./dist/index.mjs",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/I-am-abdulazeez/veroui.git",
+    "directory": "packages/utilities/aria-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/I-am-abdulazeez/veroui/issues"
+  },
+  "exports": {
+    ".": {
+      "default": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "build:fast": "tsup src",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "dependencies": {
+    "@veroui/shared-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "clean-package": "2.2.0",
+    "tsup": "^8.5.0",
+    "vue": "^3.5.22"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}
